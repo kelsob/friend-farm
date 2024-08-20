@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/QualityTierResources/QualityTier.gd" type="Script" id=1]
+[ext_resource path="res://Resources/QualityTierResources/12.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+tier = 11
+letter_tier = "Un"
+name = "Unnatural"
+quality_threshold = 30.0
+quality_threshold_to_next = 40.0
+value_modifier = 1.25
+RTEffect_open_primary = "[rainbow]"
+RTEffect_close_primary = "[/rainbow]"
+RTEffect_open_secondary = "[cuss]"
+RTEffect_close_secondary = "[/cuss]"
+RTEffect_open_tertiary = "[shake]"
+RTEffect_close_tertiary = "[/shake]"
+next_quality_tier = ExtResource( 2 )

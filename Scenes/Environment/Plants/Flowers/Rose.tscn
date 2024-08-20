@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Environment/Plants/FlowerObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/FlowerResources/Rose.tres" type="Resource" id=2]
+[ext_resource path="res://Shaders/ColorSwapShaderRed.tres" type="Material" id=3]
+
+[node name="FlowerObject" instance=ExtResource( 1 )]
+species_override = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="7"]
+material = ExtResource( 3 )

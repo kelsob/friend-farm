@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/WeatherTypeResource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Foggy"
+id = 3
+node_id = 8
+color_progression = [ Color( 0.564706, 0.564706, 0.564706, 1 ), Color( 0.72549, 0.72549, 0.72549, 1 ), Color( 0.941176, 0.941176, 0.941176, 1 ), Color( 0.8, 0.8, 0.8, 1 ), Color( 0.611765, 0.619608, 0.647059, 1 ), Color( 0.505882, 0.513726, 0.560784, 1 ), Color( 0.1, 0.1, 0.44, 1 ), Color( 0, 0, 0, 1 ) ]
+light_level_progression = [ 0.4, 0.7, 1.0, 0.8, 0.5, 0.2, 0.0 ]
+precipitation_level = 0
+weather_transition_weights = [ 2, 4, 6, 10, 0, 0, 10, 6, 2, 0, 0, 0 ]

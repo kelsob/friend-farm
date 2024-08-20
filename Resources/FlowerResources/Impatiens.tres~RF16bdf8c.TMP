@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/FlowerResources/FlowerSpecies.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Flowers/impatiens.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Impatiens"
+spritesheet = ExtResource( 2 )
+sprite_offset = Vector2( -2, -16 )
+growth_stage = 1
+growth_stages = 4
+base_growth_rate = 1.0
+growth_curve = [ 3.0, 3.0, 3.0 ]
+mature = false
+flower_growth_stages = 3
+flower_growth_stage = -1
+flower_growth_curve = [ 3.0, 3.0 ]
+flowering = false
+flower_growth_rate = 1.0
+growth_progress_to_next_stage = 0.0
+watered = false
+optimal_watering_curve = [ 15, 20, 30 ]
+watered_growth_acceleration_curve = [ 1.0, 1.0, 1.0 ]
+current_water_level = 0.0
+daily_water_retention = 0.25
+flower_quantity = 0
+flower_quality = 0.0
+harvestable = false
+harvest_count = 0
+flower_item_path = "res://Resources/ItemResources/HarvestedFlowerItems/Impatiens.tres"
+cut_tier = 0

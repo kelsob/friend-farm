@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/ConversationManager.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/DialogBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/YesNoChoiceBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI/ChoicesBox.tscn" type="PackedScene" id=4]
+
+[node name="ConversationManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="DialogBox" parent="." instance=ExtResource( 2 )]
+
+[node name="YesNoChoiceBox" parent="." instance=ExtResource( 3 )]
+
+[node name="ChoicesBox" parent="." instance=ExtResource( 4 )]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+[connection signal="dialog_skipped" from="DialogBox" to="." method="_on_DialogBox_dialog_skipped"]

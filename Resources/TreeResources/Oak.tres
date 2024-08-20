@@ -1,0 +1,49 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/TreeResources/TreeSpecies.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Environmental/Plants/Trees/oak_shadows.png" type="Texture" id=2]
+[ext_resource path="res://Resources/ItemResources/MaterialItems/Wood.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Environmental/Plants/Trees/oak.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Oak"
+spritesheet = ExtResource( 4 )
+shadow_spritesheet = ExtResource( 2 )
+sprite_offset = Vector2( -24, -48 )
+growth_stage = 1
+growth_stages = 3
+base_growth_rate = 1.0
+growth_curve = [ 5.0, 5.0, 5.0, 5.0 ]
+mature_stage = 3
+mature = false
+fruiting = false
+fruit_growth_rate = 1.0
+growth_progress_to_next_stage = 0.0
+watered = false
+optimal_watering_curve = [ 15, 20, 30, 45, 45 ]
+watered_growth_acceleration_curve = [ 1.0, 1.0, 1.0, 1.0, 1.0 ]
+current_water_level = 0.0
+daily_water_retention = 0.5
+watered_particle_effect_curve = [ [ "res://Scenes/Particles/WateredParticleSphere3.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere3.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere4.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere6.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere8.tres", Vector2( 8, 6 ) ] ]
+crop_quantity = 0
+quality = 0.0
+harvestable = false
+multiharvestable = false
+harvest_count = 0
+crop_item_path = ""
+cut_tier = 3
+cut_resistance_curve = [ 1.0, 2.0, 3.0, 3.0, 3.0 ]
+cut_progress = 0.0
+wood_type_stored = ExtResource( 3 )
+wood_quantity_stored_curve = [ 2.0, 4.0, 6.0, 6.0, 6.0 ]
+current_wood_stored = 1
+wood_regeneration_rate = 1.0
+current_wood_regeneration = 0.0
+stump_wood_stored_curve = [ 1.0, 2.0, 3.0, 3.0, 3.0 ]
+stump_cut_resistance = [ 0.0, 2.0, 4.0, 4.0, 4.0 ]
+tree_collision_curve = [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+growth_ray_cast_to_curve = [ [ Vector2( -16, 0 ), Vector2( 16, 0 ), Vector2( 0, -16 ), Vector2( 0, 16 ) ], [ Vector2( -16, 0 ), Vector2( 16, 0 ), Vector2( 0, -16 ), Vector2( 0, 16 ) ] ]
+shade_buff_provided = [ 0.0, 0.5, 1.0, 1.0, 1.0 ]
+providing_shade = false
+shade_mod = 0.2

@@ -1,0 +1,119 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/YesNoChoice.gd" type="Script" id=1]
+[ext_resource path="res://Assets/UI/MenuArrow.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UI/YesNoButton.gd" type="Script" id=4]
+[ext_resource path="res://Assets/UI/ChoiceBox.png" type="Texture" id=5]
+
+[node name="YesNoChoiceBox" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="NinePatchRect" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -58.0
+margin_top = -22.5
+margin_right = -6.0
+margin_bottom = 22.5
+texture = ExtResource( 5 )
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -11.0
+margin_right = 12.0
+margin_bottom = 11.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton" type="TextureButton" parent="TextureRect/VBoxContainer"]
+margin_right = 24.0
+margin_bottom = 9.0
+rect_min_size = Vector2( 0, 9 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../NoButton")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../NoButton")
+focus_next = NodePath("../NoButton")
+focus_previous = NodePath("../NoButton")
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/YesButton"]
+margin_right = 24.0
+margin_bottom = 9.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "YES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="TextureRect/VBoxContainer/YesButton"]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -4.5
+margin_right = -1.0
+margin_bottom = 4.5
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoButton" type="TextureButton" parent="TextureRect/VBoxContainer"]
+margin_top = 13.0
+margin_right = 24.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 9 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../YesButton")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../YesButton")
+focus_next = NodePath("../YesButton")
+focus_previous = NodePath("../YesButton")
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/NoButton"]
+margin_right = 24.0
+margin_bottom = 9.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "NO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="TextureRect/VBoxContainer/NoButton"]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -4.5
+margin_right = -1.0
+margin_bottom = 4.5
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="focus_entered" from="TextureRect/VBoxContainer/YesButton" to="TextureRect/VBoxContainer/YesButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="TextureRect/VBoxContainer/YesButton" to="TextureRect/VBoxContainer/YesButton" method="_on_focus_exited"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="focus_entered" from="TextureRect/VBoxContainer/NoButton" to="TextureRect/VBoxContainer/NoButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="TextureRect/VBoxContainer/NoButton" to="TextureRect/VBoxContainer/NoButton" method="_on_focus_exited"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/NoButton" to="." method="_on_NoButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

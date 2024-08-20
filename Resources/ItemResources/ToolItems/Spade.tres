@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/DiggingTool.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/ToolItems/spade.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Spade"
+description = "It's like the shovel, but smaller and therefore cuter. Creates small cute holes."
+sellable = true
+energy_cost = 1
+pal_value_base = 40
+pal_value_actual = 40
+texture = ExtResource( 2 )
+unique = false
+quality = 0.0
+stackable = false
+max_stack_size = 1
+current_stack_size = 1
+single_use = false
+hotbar_assignable = true
+capacitied_item = false
+player_encountered = false
+item_type = 7
+player_use_animation = "Kneel"
+player_use_animation_miss = "Kneel"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/QualityTierResources/QualityTier.gd" type="Script" id=1]
+[ext_resource path="res://Resources/QualityTierResources/1.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+tier = 0
+letter_tier = ""
+name = ""
+quality_threshold = 0.0
+quality_threshold_to_next = 1.0
+value_modifier = 1.25
+RTEffect_open_primary = ""
+RTEffect_close_primary = ""
+RTEffect_open_secondary = ""
+RTEffect_close_secondary = ""
+RTEffect_open_tertiary = ""
+RTEffect_close_tertiary = ""
+next_quality_tier = ExtResource( 2 )

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Items/pouch0.png" type="Texture" id=1]
+[ext_resource path="res://Resources/InventoryTabResources/InventoryTab.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+name = "Items"
+tab_unlocked = true
+items = [  ]
+item_types_held = [ -1 ]
+item_capacity = 1000
+icon = ExtResource( 1 )
+full = false
+empty = true

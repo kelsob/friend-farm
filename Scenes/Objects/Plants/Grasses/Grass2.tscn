@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Environmental/Plants/Grass/grass2.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Grass.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 0.5, 0.5 )
+
+[node name="Grass" instance=ExtResource( 2 )]
+collision_layer = 528
+collision_mask = 528
+script = ExtResource( 3 )
+obstructing = false
+max_growth = 1
+spread_object_path = "res://Scenes/Objects/Plants/Grasses/Grass2.tscn"
+grass_overlay_scene = "res://Scenes/Objects/Plants/GrassOverlaySprite2.tscn"
+
+[node name="Area2DPlayer" parent="." index="3"]
+visible = false
+
+[node name="CollisionShape2DObstruction" parent="." index="4"]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[node name="RayCast2DSpread" type="RayCast2D" parent="." index="7"]
+visible = false
+position = Vector2( 8, 8 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 16286
+collide_with_areas = true
+
+[node name="Area2D" type="Area2D" parent="." index="8"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="." index="9"]
+texture = ExtResource( 1 )
+offset = Vector2( -2, 4 )
+flip_h = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

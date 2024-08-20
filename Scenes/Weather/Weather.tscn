@@ -1,0 +1,1014 @@
+[gd_scene load_steps=58 format=2]
+
+[ext_resource path="res://Assets/Particles/raindrop0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Particles/wind_particle.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Weather/fog_large.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Weather.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Weather/fog.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/WeatheredParticleEffectQuadrant.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Weather/Area2DShifts.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/LightLevel.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/WeatherParticleEffect.gd" type="Script" id=10]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 3
+
+[sub_resource type="Animation" id=1]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Gradient" id=16]
+offsets = PoolRealArray( 0.00373134, 0.0186567, 0.998134 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.9375, 0.9375, 0.9375, 1, 0.644531, 0.644531, 0.644531, 0.67451 )
+
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
+
+[sub_resource type="ParticlesMaterial" id=18]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_box_extents = Vector3( 240, 160, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0.125, 1, 0 )
+spread = 1.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 98.0
+orbit_velocity = 0.02
+orbit_velocity_random = 0.0
+linear_accel = 9.8
+color = Color( 0.568627, 0.886275, 0.996078, 1 )
+color_ramp = SubResource( 17 )
+hue_variation_random = 0.08
+
+[sub_resource type="Gradient" id=19]
+offsets = PoolRealArray( 0.00373134, 0.0186567, 0.998134 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.9375, 0.9375, 0.9375, 1, 0.644531, 0.644531, 0.644531, 0.67451 )
+
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=21]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_box_extents = Vector3( 240, 160, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0.25, 1, 0 )
+spread = 1.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 98.0
+orbit_velocity = 0.02
+orbit_velocity_random = 0.0
+linear_accel = 9.8
+color = Color( 0.568627, 0.886275, 0.996078, 1 )
+color_ramp = SubResource( 20 )
+hue_variation_random = 0.08
+
+[sub_resource type="Gradient" id=22]
+offsets = PoolRealArray( 0.00373134, 0.0186567, 0.998134 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.9375, 0.9375, 0.9375, 1, 0.644531, 0.644531, 0.644531, 0.67451 )
+
+[sub_resource type="GradientTexture" id=23]
+gradient = SubResource( 22 )
+
+[sub_resource type="ParticlesMaterial" id=24]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_box_extents = Vector3( 240, 160, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0.4, 1, 0 )
+spread = 1.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 152.0
+orbit_velocity = 0.02
+orbit_velocity_random = 0.0
+linear_accel = 9.8
+color = Color( 0.568627, 0.886275, 0.996078, 1 )
+color_ramp = SubResource( 23 )
+hue_variation_random = 0.08
+
+[sub_resource type="Gradient" id=25]
+offsets = PoolRealArray( 0, 0.0714286, 0.998134 )
+colors = PoolColorArray( 0.851563, 0.851563, 0.851563, 1, 0.765625, 0.765625, 0.765625, 1, 0.644531, 0.644531, 0.644531, 0.67451 )
+
+[sub_resource type="GradientTexture" id=26]
+gradient = SubResource( 25 )
+
+[sub_resource type="ParticlesMaterial" id=27]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_box_extents = Vector3( 240, 160, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 1, 0.6, 0 )
+spread = 1.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 256.0
+orbit_velocity = 0.02
+orbit_velocity_random = 0.0
+linear_accel = 9.8
+color = Color( 0.568627, 0.886275, 0.996078, 1 )
+color_ramp = SubResource( 26 )
+hue_variation_random = 0.08
+
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.348348 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+emission_shape = 2
+emission_box_extents = Vector3( 140, 200, 1 )
+flag_disable_z = true
+gravity = Vector3( 8, 98, 0 )
+initial_velocity = 90.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 14 )
+
+[sub_resource type="Curve" id=28]
+min_value = -0.05
+max_value = 0.05
+_data = [ Vector2( 0, 0.0209091 ), 0.0, 0.0, 0, 0, Vector2( 0.502333, -0.0190909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0163636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=29]
+curve = SubResource( 28 )
+
+[sub_resource type="Curve" id=11]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=30]
+curve = SubResource( 11 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.629808, 0.5375 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.628146, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.490196, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+lifetime_randomness = 0.25
+trail_divisor = 128
+trail_size_modifier = SubResource( 9 )
+trail_color_modifier = SubResource( 7 )
+emission_shape = 2
+emission_box_extents = Vector3( 240, 160, 1 )
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+spread = 8.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 98.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.01
+orbit_velocity_random = 0.0
+orbit_velocity_curve = SubResource( 29 )
+radial_accel_curve = SubResource( 30 )
+damping = 3.93
+scale_curve = SubResource( 5 )
+color = Color( 1, 1, 0.854902, 0.113725 )
+
+[sub_resource type="Curve" id=31]
+min_value = -0.05
+max_value = 0.05
+_data = [ Vector2( 0, 0.0367045 ), 0.0, 0.0, 0, 0, Vector2( 0.498328, -0.0314773 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0357955 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0496591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=32]
+curve = SubResource( 31 )
+
+[sub_resource type="Curve" id=33]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=34]
+curve = SubResource( 33 )
+
+[sub_resource type="Curve" id=35]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.304348, 0.744318 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=36]
+curve = SubResource( 35 )
+
+[sub_resource type="Gradient" id=37]
+offsets = PoolRealArray( 0, 0.628146, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.490196, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=38]
+gradient = SubResource( 37 )
+
+[sub_resource type="Curve" id=39]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=40]
+curve = SubResource( 39 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+lifetime_randomness = 0.25
+trail_divisor = 256
+trail_size_modifier = SubResource( 40 )
+trail_color_modifier = SubResource( 38 )
+emission_shape = 2
+emission_box_extents = Vector3( 240, 160, 1 )
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+spread = 8.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 98.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.01
+orbit_velocity_random = 0.0
+orbit_velocity_curve = SubResource( 32 )
+radial_accel_curve = SubResource( 34 )
+damping = 3.93
+scale_curve = SubResource( 36 )
+color = Color( 1, 1, 0.854902, 0.113725 )
+
+[sub_resource type="Gradient" id=41]
+offsets = PoolRealArray( 0, 0.0874126, 0.258741, 0.611888, 0.996503 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.756863, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=42]
+gradient = SubResource( 41 )
+
+[sub_resource type="Curve" id=43]
+max_value = 3.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.47273 ), 0.678424, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=44]
+curve = SubResource( 43 )
+
+[sub_resource type="ParticlesMaterial" id=45]
+trail_divisor = 3
+trail_size_modifier = SubResource( 44 )
+emission_shape = 2
+emission_box_extents = Vector3( 240, 160, 1 )
+flag_rotate_y = true
+flag_disable_z = true
+direction = Vector3( 1, 1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+damping = 10.0
+damping_random = 1.0
+scale_random = 0.2
+color = Color( 1, 1, 1, 0.12549 )
+color_ramp = SubResource( 42 )
+
+[sub_resource type="Gradient" id=46]
+offsets = PoolRealArray( 0.002079, 0.153846, 0.985447 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=47]
+gradient = SubResource( 46 )
+
+[sub_resource type="ParticlesMaterial" id=48]
+lifetime_randomness = 0.2
+trail_divisor = 2
+emission_shape = 2
+emission_box_extents = Vector3( 240, 160, 1 )
+flag_disable_z = true
+direction = Vector3( 1, 1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 10.0
+color_ramp = SubResource( 47 )
+
+[node name="Weather" type="Node2D"]
+z_index = 5
+script = ExtResource( 4 )
+
+[node name="LightControl" type="ColorRect" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -5120.0
+margin_top = -5120.0
+margin_right = 5120.0
+margin_bottom = 5120.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="LightControl"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/appear = SubResource( 1 )
+anims/disappear = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="LightRain" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="LightRain" type="Particles2D" parent="LightRain"]
+position = Vector2( -240, -160 )
+emitting = false
+amount = 32
+speed_scale = 0.6
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 18 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="LightRain/LightRain" instance=ExtResource( 7 )]
+
+[node name="LightRain2" type="Particles2D" parent="LightRain"]
+position = Vector2( 240, -160 )
+emitting = false
+amount = 32
+speed_scale = 0.6
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 18 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="LightRain/LightRain2" instance=ExtResource( 7 )]
+
+[node name="LightRain3" type="Particles2D" parent="LightRain"]
+position = Vector2( -240, 160 )
+emitting = false
+amount = 32
+speed_scale = 0.6
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 18 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="LightRain/LightRain3" instance=ExtResource( 7 )]
+
+[node name="LightRain4" type="Particles2D" parent="LightRain"]
+position = Vector2( 240, 160 )
+emitting = false
+amount = 32
+speed_scale = 0.6
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 18 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="LightRain/LightRain4" instance=ExtResource( 7 )]
+
+[node name="Tween" type="Tween" parent="LightRain"]
+
+[node name="NormalRain" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="NormalRain" type="Particles2D" parent="NormalRain"]
+visible = false
+position = Vector2( -240, -160 )
+emitting = false
+amount = 196
+lifetime = 0.5
+speed_scale = 0.8
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 21 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="NormalRain/NormalRain" instance=ExtResource( 7 )]
+
+[node name="NormalRain2" type="Particles2D" parent="NormalRain"]
+visible = false
+position = Vector2( 240, -160 )
+emitting = false
+amount = 196
+lifetime = 0.5
+speed_scale = 0.8
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 21 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="NormalRain/NormalRain2" instance=ExtResource( 7 )]
+
+[node name="NormalRain3" type="Particles2D" parent="NormalRain"]
+visible = false
+position = Vector2( -240, 160 )
+emitting = false
+amount = 196
+lifetime = 0.5
+speed_scale = 0.8
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 21 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="NormalRain/NormalRain3" instance=ExtResource( 7 )]
+
+[node name="NormalRain4" type="Particles2D" parent="NormalRain"]
+visible = false
+position = Vector2( 240, 160 )
+emitting = false
+amount = 196
+lifetime = 0.5
+speed_scale = 0.8
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 21 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="NormalRain/NormalRain4" instance=ExtResource( 7 )]
+
+[node name="Tween" type="Tween" parent="NormalRain"]
+
+[node name="HeavyRain" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="HeavyRain" type="Particles2D" parent="HeavyRain"]
+visible = false
+position = Vector2( -240, -160 )
+emitting = false
+amount = 3200
+speed_scale = 0.8
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 24 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="HeavyRain/HeavyRain" instance=ExtResource( 7 )]
+
+[node name="HeavyRain2" type="Particles2D" parent="HeavyRain"]
+visible = false
+position = Vector2( 240, -160 )
+emitting = false
+amount = 3200
+speed_scale = 0.8
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 24 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="HeavyRain/HeavyRain2" instance=ExtResource( 7 )]
+
+[node name="HeavyRain3" type="Particles2D" parent="HeavyRain"]
+visible = false
+position = Vector2( -240, 160 )
+emitting = false
+amount = 3200
+speed_scale = 0.8
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 24 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="HeavyRain/HeavyRain3" instance=ExtResource( 7 )]
+
+[node name="HeavyRain4" type="Particles2D" parent="HeavyRain"]
+visible = false
+position = Vector2( 240, 160 )
+emitting = false
+amount = 3200
+speed_scale = 0.8
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 24 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="HeavyRain/HeavyRain4" instance=ExtResource( 7 )]
+
+[node name="Tween" type="Tween" parent="HeavyRain"]
+
+[node name="TorrentialRain" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="TorrentialRain" type="Particles2D" parent="TorrentialRain"]
+visible = false
+position = Vector2( -240, -160 )
+emitting = false
+amount = 6400
+speed_scale = 1.2
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 27 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="TorrentialRain/TorrentialRain" instance=ExtResource( 7 )]
+
+[node name="TorrentialRain2" type="Particles2D" parent="TorrentialRain"]
+visible = false
+position = Vector2( 240, -160 )
+emitting = false
+amount = 6400
+speed_scale = 1.2
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 27 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="TorrentialRain/TorrentialRain2" instance=ExtResource( 7 )]
+
+[node name="TorrentialRain3" type="Particles2D" parent="TorrentialRain"]
+visible = false
+position = Vector2( -240, 160 )
+emitting = false
+amount = 6400
+speed_scale = 1.2
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 27 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="TorrentialRain/TorrentialRain3" instance=ExtResource( 7 )]
+
+[node name="TorrentialRain4" type="Particles2D" parent="TorrentialRain"]
+visible = false
+position = Vector2( 240, 160 )
+emitting = false
+amount = 6400
+speed_scale = 1.2
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 27 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="TorrentialRain/TorrentialRain4" instance=ExtResource( 7 )]
+
+[node name="Tween" type="Tween" parent="TorrentialRain"]
+
+[node name="LightSnow" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="LightSnow" type="Particles2D" parent="LightSnow"]
+visible = false
+position = Vector2( -240, -160 )
+rotation = 0.785398
+emitting = false
+amount = 16000
+lifetime = 5.0
+process_material = SubResource( 15 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="LightSnow/LightSnow" instance=ExtResource( 7 )]
+
+[node name="LightSnow2" type="Particles2D" parent="LightSnow"]
+visible = false
+position = Vector2( 240, -160 )
+rotation = 0.785398
+emitting = false
+amount = 16000
+lifetime = 5.0
+process_material = SubResource( 15 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="LightSnow/LightSnow2" instance=ExtResource( 7 )]
+
+[node name="LightSnow3" type="Particles2D" parent="LightSnow"]
+visible = false
+position = Vector2( -240, 160 )
+rotation = 0.785398
+emitting = false
+amount = 16000
+lifetime = 5.0
+process_material = SubResource( 15 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="LightSnow/LightSnow3" instance=ExtResource( 7 )]
+
+[node name="LightSnow4" type="Particles2D" parent="LightSnow"]
+visible = false
+position = Vector2( 240, 160 )
+rotation = 0.785398
+emitting = false
+amount = 16000
+lifetime = 5.0
+process_material = SubResource( 15 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="LightSnow/LightSnow4" instance=ExtResource( 7 )]
+
+[node name="Tween" type="Tween" parent="LightSnow"]
+
+[node name="HeavySnow" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="HeavySnow" type="Particles2D" parent="HeavySnow"]
+visible = false
+position = Vector2( -240, -160 )
+rotation = 0.785398
+emitting = false
+amount = 16000
+lifetime = 5.0
+process_material = SubResource( 15 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="HeavySnow/HeavySnow" instance=ExtResource( 7 )]
+
+[node name="HeavySnow2" type="Particles2D" parent="HeavySnow"]
+visible = false
+position = Vector2( 240, -160 )
+rotation = 0.785398
+emitting = false
+amount = 16000
+lifetime = 5.0
+process_material = SubResource( 15 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="HeavySnow/HeavySnow2" instance=ExtResource( 7 )]
+
+[node name="HeavySnow3" type="Particles2D" parent="HeavySnow"]
+visible = false
+position = Vector2( -240, 160 )
+rotation = 0.785398
+emitting = false
+amount = 16000
+lifetime = 5.0
+process_material = SubResource( 15 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="HeavySnow/HeavySnow3" instance=ExtResource( 7 )]
+
+[node name="HeavySnow4" type="Particles2D" parent="HeavySnow"]
+visible = false
+position = Vector2( 240, 160 )
+rotation = 0.785398
+emitting = false
+amount = 16000
+lifetime = 5.0
+process_material = SubResource( 15 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="HeavySnow/HeavySnow4" instance=ExtResource( 7 )]
+
+[node name="Tween" type="Tween" parent="HeavySnow"]
+
+[node name="Windy" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Windy" type="Particles2D" parent="Windy"]
+visible = false
+position = Vector2( -240, -160 )
+emitting = false
+amount = 1024
+lifetime = 4.0
+speed_scale = 2.5
+randomness = 0.25
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 10 )
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Windy/Windy" instance=ExtResource( 7 )]
+
+[node name="Windy2" type="Particles2D" parent="Windy"]
+visible = false
+position = Vector2( 240, -160 )
+emitting = false
+amount = 1024
+lifetime = 4.0
+speed_scale = 2.5
+randomness = 0.25
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 10 )
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Windy/Windy2" instance=ExtResource( 7 )]
+
+[node name="Windy3" type="Particles2D" parent="Windy"]
+visible = false
+position = Vector2( -240, 160 )
+emitting = false
+amount = 1024
+lifetime = 4.0
+speed_scale = 2.5
+randomness = 0.25
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 10 )
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Windy/Windy3" instance=ExtResource( 7 )]
+
+[node name="Windy4" type="Particles2D" parent="Windy"]
+visible = false
+position = Vector2( 240, 160 )
+emitting = false
+amount = 1024
+lifetime = 4.0
+speed_scale = 2.5
+randomness = 0.25
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 10 )
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Windy/Windy4" instance=ExtResource( 7 )]
+
+[node name="Tween" type="Tween" parent="Windy"]
+
+[node name="Breezy" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Breezy" type="Particles2D" parent="Breezy"]
+visible = false
+position = Vector2( -240, -160 )
+emitting = false
+amount = 1024
+lifetime = 4.0
+explosiveness = 0.32
+randomness = 0.25
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 12 )
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Breezy/Breezy" instance=ExtResource( 7 )]
+
+[node name="Breezy2" type="Particles2D" parent="Breezy"]
+visible = false
+position = Vector2( 240, -160 )
+emitting = false
+amount = 1024
+lifetime = 4.0
+explosiveness = 0.32
+randomness = 0.25
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 12 )
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Breezy/Breezy2" instance=ExtResource( 7 )]
+
+[node name="Breezy3" type="Particles2D" parent="Breezy"]
+visible = false
+position = Vector2( -240, 160 )
+emitting = false
+amount = 1024
+lifetime = 4.0
+explosiveness = 0.32
+randomness = 0.25
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 12 )
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Breezy/Breezy3" instance=ExtResource( 7 )]
+
+[node name="Breezy4" type="Particles2D" parent="Breezy"]
+visible = false
+position = Vector2( 240, 160 )
+emitting = false
+amount = 1024
+lifetime = 4.0
+explosiveness = 0.32
+randomness = 0.25
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 12 )
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Breezy/Breezy4" instance=ExtResource( 7 )]
+
+[node name="Tween" type="Tween" parent="Breezy"]
+
+[node name="Fog" type="Node2D" parent="."]
+script = ExtResource( 10 )
+particle_children_ids = [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+
+[node name="Foggy" type="Particles2D" parent="Fog"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( -240, -160 )
+z_index = 6
+z_as_relative = false
+emitting = false
+amount = 1024
+lifetime = 12.0
+preprocess = 12.0
+explosiveness = 0.1
+randomness = 1.0
+fract_delta = false
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 45 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Fog/Foggy" instance=ExtResource( 7 )]
+
+[node name="Foggy2" type="Particles2D" parent="Fog"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( 240, -160 )
+z_index = 6
+z_as_relative = false
+emitting = false
+amount = 1024
+lifetime = 12.0
+preprocess = 12.0
+explosiveness = 0.1
+randomness = 1.0
+fract_delta = false
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 45 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="FogBase" type="Particles2D" parent="Fog/Foggy2"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+z_as_relative = false
+emitting = false
+amount = 256
+lifetime = 18.0
+preprocess = 18.0
+fract_delta = false
+process_material = SubResource( 48 )
+texture = ExtResource( 3 )
+
+[node name="Area2DShifts" parent="Fog/Foggy2" instance=ExtResource( 7 )]
+
+[node name="Foggy3" type="Particles2D" parent="Fog"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( -240, 160 )
+z_index = 6
+z_as_relative = false
+emitting = false
+amount = 1024
+lifetime = 12.0
+preprocess = 12.0
+explosiveness = 0.1
+randomness = 1.0
+fract_delta = false
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 45 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="FogBase" type="Particles2D" parent="Fog/Foggy3"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+z_as_relative = false
+emitting = false
+amount = 256
+lifetime = 18.0
+preprocess = 18.0
+fract_delta = false
+process_material = SubResource( 48 )
+texture = ExtResource( 3 )
+
+[node name="Area2DShifts" parent="Fog/Foggy3" instance=ExtResource( 7 )]
+
+[node name="Foggy4" type="Particles2D" parent="Fog"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( 240, 160 )
+z_index = 6
+z_as_relative = false
+emitting = false
+amount = 1024
+lifetime = 12.0
+preprocess = 12.0
+explosiveness = 0.1
+randomness = 1.0
+fract_delta = false
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 45 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="FogBase" type="Particles2D" parent="Fog/Foggy4"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+z_as_relative = false
+emitting = false
+amount = 256
+lifetime = 18.0
+preprocess = 18.0
+fract_delta = false
+process_material = SubResource( 48 )
+texture = ExtResource( 3 )
+
+[node name="Area2DShifts" parent="Fog/Foggy4" instance=ExtResource( 7 )]
+
+[node name="FogBase" type="Particles2D" parent="Fog"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( -240, -160 )
+z_index = 5
+z_as_relative = false
+emitting = false
+amount = 128
+lifetime = 18.0
+preprocess = 18.0
+fract_delta = false
+visibility_rect = Rect2( -240, -160, 480, 360 )
+process_material = SubResource( 48 )
+texture = ExtResource( 3 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Fog/FogBase" instance=ExtResource( 7 )]
+
+[node name="FogBase2" type="Particles2D" parent="Fog"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( 240, -160 )
+z_index = 5
+z_as_relative = false
+emitting = false
+amount = 128
+lifetime = 18.0
+preprocess = 18.0
+fract_delta = false
+visibility_rect = Rect2( -240, -160, 480, 360 )
+process_material = SubResource( 48 )
+texture = ExtResource( 3 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Fog/FogBase2" instance=ExtResource( 7 )]
+
+[node name="FogBase3" type="Particles2D" parent="Fog"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( -240, 160 )
+z_index = 5
+z_as_relative = false
+emitting = false
+amount = 128
+lifetime = 18.0
+preprocess = 18.0
+fract_delta = false
+visibility_rect = Rect2( -240, -160, 480, 360 )
+process_material = SubResource( 48 )
+texture = ExtResource( 3 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Fog/FogBase3" instance=ExtResource( 7 )]
+
+[node name="FogBase4" type="Particles2D" parent="Fog"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( 240, 160 )
+z_index = 5
+z_as_relative = false
+emitting = false
+amount = 128
+lifetime = 18.0
+preprocess = 18.0
+fract_delta = false
+visibility_rect = Rect2( -240, -160, 480, 360 )
+process_material = SubResource( 48 )
+texture = ExtResource( 3 )
+script = ExtResource( 6 )
+
+[node name="Area2DShifts" parent="Fog/FogBase4" instance=ExtResource( 7 )]
+
+[node name="Tween" type="Tween" parent="Fog"]

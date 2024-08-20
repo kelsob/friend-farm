@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/MainScenes/WorldScenes/WorldScene.tscn" type="PackedScene" id=1]
+
+[node name="CavesNorth" instance=ExtResource( 1 )]
+scene_tile_dimensions = Vector2( 128, 128 )
+
+[node name="BaseTileMap" parent="." index="0"]
+tile_data = PoolIntArray( 4653156, 22, 0, 6357094, 22, 0 )
+
+[node name="EdgeTileMapLeft" parent="EdgeTileMaps" index="0"]
+position = Vector2( 8, 1024 )
+
+[node name="EdgeTileMapRight" parent="EdgeTileMaps" index="1"]
+position = Vector2( 2072, 1024 )
+
+[node name="EdgeTileMapUp" parent="EdgeTileMaps" index="2"]
+position = Vector2( 1024, -8 )
+
+[node name="EdgeTileMapDown" parent="EdgeTileMaps" index="3"]
+position = Vector2( 1024, 2072 )
+
+[node name="EdgeExitUp" parent="EdgeExits" index="0"]
+position = Vector2( 1032, -8 )
+scale = Vector2( 129.5, 1 )
+
+[node name="EdgeExitDown" parent="EdgeExits" index="1"]
+position = Vector2( 1032, 2056 )
+scale = Vector2( 129.5, 1 )
+
+[node name="EdgeExitLeft" parent="EdgeExits" index="2"]
+position = Vector2( 8, 1032 )
+scale = Vector2( 129.5, 1 )
+
+[node name="EdgeExitRight" parent="EdgeExits" index="3"]
+position = Vector2( 2056, 1032 )
+scale = Vector2( 129.5, 1 )

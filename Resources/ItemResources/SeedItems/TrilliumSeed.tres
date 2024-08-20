@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/SeedItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/SeedItems/flower_seeds.png" type="Texture" id=2]
+[ext_resource path="res://Resources/FlowerResources/Trillium.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Trillium Seed"
+description = "When planted will grow into a provincially protected trillium flower."
+sellable = true
+energy_cost = 1
+pal_value_base = 0
+pal_value_actual = 0
+texture = ExtResource( 2 )
+unique = false
+quality = 0.0
+stackable = true
+max_stack_size = 30
+current_stack_size = 1
+single_use = true
+hotbar_assignable = true
+capacitied_item = false
+player_encountered = false
+item_type = 4
+tilled_earth_required = false
+crop_species = ExtResource( 3 )
+crop_object_path = "res://Scenes/Environment/Plants/FlowerObject.tscn"
+player_use_animation = "Kneel"
+player_use_animation_miss = "Kneel"

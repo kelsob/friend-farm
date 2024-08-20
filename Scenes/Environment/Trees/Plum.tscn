@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Environment/Trees/TreeObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/TreeResources/Plum.tres" type="Resource" id=2]
+[ext_resource path="res://Assets/Environmental/Plants/Trees/fruit_plum_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Environmental/Plants/Trees/fruit_tree_shadows.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Particles/WateredParticleSphere4.tres" type="Material" id=5]
+
+
+
+[node name="TreeObject" instance=ExtResource( 1 )]
+species_override = ExtResource( 2 )
+growth_stage_override = 3
+
+[node name="SpriteShadow" parent="." index="6"]
+texture = ExtResource( 4 )
+offset = Vector2( -12, -32 )
+hframes = 5
+frame = 2
+
+[node name="Sprite" parent="." index="8"]
+texture = ExtResource( 3 )
+offset = Vector2( -12, -32 )
+hframes = 5
+frame = 2
+
+[node name="WateredEffect" parent="." index="11"]
+position = Vector2( 8, 6 )
+process_material = ExtResource( 5 )

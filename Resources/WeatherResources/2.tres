@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/WeatherTypeResource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Overcast"
+id = 2
+node_id = -1
+color_progression = [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 0.552941, 0.662745, 0.772549, 1 ), Color( 0.737255, 0.831373, 0.917647, 1 ), Color( 0.564706, 0.709804, 0.858824, 1 ), Color( 0.552941, 0.67451, 0.784314, 1 ), Color( 0.454902, 0.541176, 0.623529, 1 ), Color( 0.1, 0.1, 0.44, 1 ), Color( 0, 0, 0, 1 ) ]
+light_level_progression = [ 0.4, 0.7, 1.0, 0.8, 0.5, 0.2, 0.0 ]
+precipitation_level = 0
+weather_transition_weights = [ 10, 6, 10, 0, 0, 0, 6, 8, 6, 0, 0, 0 ]

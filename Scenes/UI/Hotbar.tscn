@@ -1,0 +1,197 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Assets/UI/HotBar/Background.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Hotbar.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/HotbarSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://FX/RichTextEffects/Woo.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/ActiveItemLabel.gd" type="Script" id=5]
+[ext_resource path="res://FX/RichTextEffects/Cuss.gd" type="Script" id=6]
+[ext_resource path="res://FX/RichTextEffects/Heart.gd" type="Script" id=7]
+[ext_resource path="res://FX/RichTextEffects/Jump.gd" type="Script" id=8]
+[ext_resource path="res://FX/RichTextEffects/L33T.gd" type="Script" id=9]
+[ext_resource path="res://FX/RichTextEffects/Nervous.gd" type="Script" id=10]
+[ext_resource path="res://FX/RichTextEffects/Number.gd" type="Script" id=11]
+[ext_resource path="res://FX/RichTextEffects/Ghost.gd" type="Script" id=12]
+[ext_resource path="res://FX/RichTextEffects/ColorMod.gd" type="Script" id=13]
+[ext_resource path="res://FX/RichTextEffects/Sparkle.gd" type="Script" id=14]
+[ext_resource path="res://FX/RichTextEffects/Rain.gd" type="Script" id=15]
+[ext_resource path="res://FX/RichTextEffects/UwU.gd" type="Script" id=16]
+
+[sub_resource type="RichTextEffect" id=1]
+script = ExtResource( 13 )
+
+[sub_resource type="RichTextEffect" id=2]
+script = ExtResource( 6 )
+
+[sub_resource type="RichTextEffect" id=3]
+script = ExtResource( 12 )
+
+[sub_resource type="RichTextEffect" id=4]
+script = ExtResource( 7 )
+
+[sub_resource type="RichTextEffect" id=5]
+script = ExtResource( 8 )
+
+[sub_resource type="RichTextEffect" id=6]
+script = ExtResource( 9 )
+
+[sub_resource type="RichTextEffect" id=7]
+script = ExtResource( 10 )
+
+[sub_resource type="RichTextEffect" id=8]
+script = ExtResource( 11 )
+
+[sub_resource type="RichTextEffect" id=9]
+script = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=10]
+script = ExtResource( 14 )
+
+[sub_resource type="RichTextEffect" id=11]
+script = ExtResource( 16 )
+
+[sub_resource type="RichTextEffect" id=12]
+script = ExtResource( 4 )
+
+[sub_resource type="Animation" id=13]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="Hotbar" type="Node2D"]
+position = Vector2( 160, 148 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.768627 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -78.5
+margin_top = -10.0
+margin_right = 78.5
+margin_bottom = 10.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HotbarSlots" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.5
+margin_top = -9.0
+margin_right = 76.5
+margin_bottom = 9.0
+custom_constants/hseparation = -1
+columns = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" parent="HotbarSlots" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 20.0
+margin_bottom = 18.0
+
+[node name="Panel2" parent="HotbarSlots" instance=ExtResource( 3 )]
+margin_left = 19.0
+margin_top = 0.0
+margin_right = 39.0
+margin_bottom = 18.0
+
+[node name="Panel3" parent="HotbarSlots" instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_top = 0.0
+margin_right = 58.0
+margin_bottom = 18.0
+
+[node name="Panel4" parent="HotbarSlots" instance=ExtResource( 3 )]
+margin_left = 57.0
+margin_top = 0.0
+margin_right = 77.0
+margin_bottom = 18.0
+
+[node name="Panel5" parent="HotbarSlots" instance=ExtResource( 3 )]
+margin_left = 76.0
+margin_top = 0.0
+margin_right = 96.0
+margin_bottom = 18.0
+
+[node name="Panel6" parent="HotbarSlots" instance=ExtResource( 3 )]
+margin_left = 95.0
+margin_top = 0.0
+margin_right = 115.0
+margin_bottom = 18.0
+
+[node name="Panel7" parent="HotbarSlots" instance=ExtResource( 3 )]
+margin_left = 114.0
+margin_top = 0.0
+margin_right = 134.0
+margin_bottom = 18.0
+
+[node name="Panel8" parent="HotbarSlots" instance=ExtResource( 3 )]
+margin_left = 133.0
+margin_top = 0.0
+margin_right = 153.0
+margin_bottom = 18.0
+
+[node name="ActiveItemLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -69.0
+margin_top = -20.0
+margin_right = 73.0
+margin_bottom = -7.0
+rect_min_size = Vector2( 142, 0 )
+rect_clip_content = false
+bbcode_enabled = true
+bbcode_text = "default_text"
+visible_characters = 0
+percent_visible = 0.0
+text = "default_text"
+scroll_active = false
+custom_effects = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="ActiveItemLabel"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActiveItemLabel"]
+anims/FadeOut = SubResource( 13 )
+
+[node name="Timer" type="Timer" parent="ActiveItemLabel"]
+wait_time = 3.0
+one_shot = true
+[connection signal="tween_completed" from="ActiveItemLabel/Tween" to="ActiveItemLabel" method="_on_tween_completed"]
+[connection signal="timeout" from="ActiveItemLabel/Timer" to="ActiveItemLabel" method="_on_Timer_timeout"]

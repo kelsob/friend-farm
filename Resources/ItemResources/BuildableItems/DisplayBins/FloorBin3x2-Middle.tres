@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/BuildableItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/buildable.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+description = "Floor Bin 1x1"
+sellable = true
+pal_value_base = 15
+pal_value_actual = 0
+texture = ExtResource( 2 )
+unique = false
+quality = 0.0
+stackable = true
+max_stack_size = 10
+current_stack_size = 1
+single_use = true
+hotbar_assignable = true
+capacitied_item = false
+player_encountered = false
+item_type = 8
+object_path = "res://Scenes/Objects/World/DisplayBins/FloorBin3x2-Middle.tscn"

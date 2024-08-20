@@ -1,0 +1,57 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+
+uniform vec4 original_0: hint_color;
+uniform vec4 original_1: hint_color;
+uniform vec4 original_2: hint_color;
+uniform vec4 original_3: hint_color;
+uniform vec4 original_4: hint_color;
+uniform vec4 original_5: hint_color;
+uniform vec4 original_6: hint_color;
+uniform vec4 replace_0: hint_color;
+uniform vec4 replace_1: hint_color;
+uniform vec4 replace_2: hint_color;
+uniform vec4 replace_3: hint_color;
+uniform vec4 replace_4: hint_color;
+uniform vec4 replace_5: hint_color;
+uniform vec4 replace_6: hint_color;
+
+const float precision = 0.1;
+
+
+vec4 swap_color(vec4 color){
+	vec4 original_colors[5] = vec4[5] (original_0, original_1, original_2, original_3, original_4);
+	vec4 replace_colors[5] = vec4[5] (replace_0, replace_1, replace_2, replace_3, replace_4);
+	for (int i = 0; i < 7; i ++) {
+		if (distance(color, original_colors[i]) <= precision){
+			return replace_colors[i];
+		}
+	}
+	return color;
+}
+
+
+void fragment() {
+	COLOR = swap_color(texture(TEXTURE, UV));
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/original_0 = Color( 0, 0.0431373, 0.188235, 1 )
+shader_param/original_1 = Color( 0, 0.0784314, 0.380392, 1 )
+shader_param/original_2 = Color( 0.0862745, 0.203922, 0.529412, 1 )
+shader_param/original_3 = Color( 0.0745098, 0.223529, 0.635294, 1 )
+shader_param/original_4 = Color( 0.156863, 0.309804, 0.741176, 1 )
+shader_param/original_5 = Color( 0.235294, 0.388235, 0.811765, 1 )
+shader_param/original_6 = Color( 0.407843, 0.521569, 0.960784, 1 )
+shader_param/replace_0 = Color( 0.184314, 0.188235, 0, 1 )
+shader_param/replace_1 = Color( 0.364706, 0.380392, 0, 1 )
+shader_param/replace_2 = Color( 0.529412, 0.521569, 0.0862745, 1 )
+shader_param/replace_3 = Color( 0.635294, 0.627451, 0.0745098, 1 )
+shader_param/replace_4 = Color( 0.741176, 0.733333, 0.156863, 1 )
+shader_param/replace_5 = Color( 0.811765, 0.803922, 0.235294, 1 )
+shader_param/replace_6 = Color( 0.937255, 0.960784, 0.407843, 1 )

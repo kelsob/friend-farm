@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Environmental/Plants/Grass/grassstepped1.png" type="Texture" id=1]
+
+[node name="GrassOverlaySprite" type="Sprite"]
+z_index = 6
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -4, 0 )
+hframes = 2

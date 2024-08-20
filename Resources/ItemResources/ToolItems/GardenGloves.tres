@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/HarvestingTool.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/ToolItems/garden_gloves.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Items/ToolItems/garden_gloves_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/Cursor/garden_gloves.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Garden Gloves"
+description = "While worn, harvested plants become nicer. Also, stylish."
+sellable = true
+energy_cost = 1
+pal_value_base = 80
+pal_value_actual = 80
+texture = ExtResource( 2 )
+unique = false
+quality = 0.0
+stackable = false
+max_stack_size = 1
+current_stack_size = 1
+single_use = false
+hotbar_assignable = true
+capacitied_item = false
+player_encountered = false
+item_type = 7
+character_equipped_spritesheet = ExtResource( 3 )
+custom_cursor = ExtResource( 4 )
+harvest_quality_mod = 0.25
+player_use_animation = "Kneel"
+player_use_animation_miss = "Kneel"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/InventoryTabResources/InventoryTab.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/SeedItems/acorn.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Seeds"
+tab_unlocked = true
+items = [  ]
+item_types_held = [ 4 ]
+item_capacity = 1000
+icon = ExtResource( 2 )
+full = false
+empty = true

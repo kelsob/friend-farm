@@ -1,0 +1,132 @@
+[gd_scene load_steps=31 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "CarExitDown"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "CarExitUp"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "CarExitLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "CarExitRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=5]
+blend_point_0/node = SubResource( 1 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 2 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 3 )
+blend_point_2/pos = Vector2( -1, 0 )
+blend_point_3/node = SubResource( 4 )
+blend_point_3/pos = Vector2( 1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "IdleDown"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "IdleUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=10]
+blend_point_0/node = SubResource( 6 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 7 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 8 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 9 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "TurnDown"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "TurnUp"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "TurnRight"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "TurnLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=15]
+blend_point_0/node = SubResource( 11 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 12 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 13 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 14 )
+blend_point_3/pos = Vector2( -1, 0 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "WalkLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "WalkDown"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "WalkUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=20]
+blend_point_0/node = SubResource( 16 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 17 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 18 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 19 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachine" id=29]
+states/CarExit/node = SubResource( 5 )
+states/CarExit/position = Vector2( -81.737, 143 )
+states/Idle/node = SubResource( 10 )
+states/Idle/position = Vector2( 101, 190 )
+states/Turn/node = SubResource( 15 )
+states/Turn/position = Vector2( 258, 228 )
+states/Walk/node = SubResource( 20 )
+states/Walk/position = Vector2( 239, 85 )
+transitions = [ "Idle", "Walk", SubResource( 21 ), "Walk", "Idle", SubResource( 22 ), "Idle", "Turn", SubResource( 23 ), "Turn", "Idle", SubResource( 24 ), "Walk", "Turn", SubResource( 25 ), "Turn", "Walk", SubResource( 26 ), "CarExit", "Idle", SubResource( 27 ), "Idle", "CarExit", SubResource( 28 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -904.737, 0 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=30]
+
+[node name="AnimationTree" type="AnimationTree"]
+tree_root = SubResource( 29 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 30 )
+parameters/CarExit/blend_position = Vector2( 0, 0 )
+parameters/Idle/blend_position = Vector2( 0, 0 )
+parameters/Turn/blend_position = Vector2( 0, 0 )
+parameters/Walk/blend_position = Vector2( -0.00318807, 1 )

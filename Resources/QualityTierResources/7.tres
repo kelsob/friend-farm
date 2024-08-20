@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/QualityTierResources/QualityTier.gd" type="Script" id=1]
+[ext_resource path="res://Resources/QualityTierResources/8.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+tier = 7
+letter_tier = "Gr"
+name = "Grand"
+quality_threshold = 12.5
+quality_threshold_to_next = 16.0
+value_modifier = 1.25
+RTEffect_open_primary = "[sparkle freq=2 c1=#0070dd c2=#a335ee]"
+RTEffect_close_primary = "[/sparkle]"
+RTEffect_open_secondary = "[tornado radius=2 freq=4]"
+RTEffect_close_secondary = "[/tornado]"
+RTEffect_open_tertiary = ""
+RTEffect_close_tertiary = ""
+next_quality_tier = ExtResource( 2 )

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/Item.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/KeyItems/baxters_bone.png" type="Texture" id=2]
+
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+name = "Baxter's Bone"
+description = "The prized bone of BAXTER GOODEBOY."
+sellable = true
+value = 0
+texture = ExtResource( 2 )
+unique = true
+stackable = false
+max_stack_size = 99
+current_stack_size = 1
+single_use = false
+hotbar_assignable = true
+capacitied_item = false
+player_use_animation = "Idle"
+player_use_animation_miss = "Idle"
+item_type = 1

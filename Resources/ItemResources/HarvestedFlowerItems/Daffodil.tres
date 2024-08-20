@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/HarvestedFlowerItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/FlowerItems/Daffodil.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Daffodil"
+description = "An efflorescence of daffodils."
+sellable = true
+pal_value_base = 0
+pal_value_actual = 0
+texture = ExtResource( 2 )
+unique = false
+quality = 0.0
+stackable = true
+max_stack_size = 10
+current_stack_size = 1
+single_use = false
+hotbar_assignable = true
+capacitied_item = false
+player_encountered = false
+item_type = 0
+player_use_animation = "Idle"
+player_use_animation_miss = "Idle"

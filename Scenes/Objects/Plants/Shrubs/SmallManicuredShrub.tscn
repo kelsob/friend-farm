@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Environmental/Plants/Shrubs/bush_manicured_small.png" type="Texture" id=2]
+
+[node name="SmallManicuredShrub" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="." index="7"]
+texture = ExtResource( 2 )

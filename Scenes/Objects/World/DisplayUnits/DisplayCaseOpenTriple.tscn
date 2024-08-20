@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Structures/DisplayCases/display_open_triple.png" type="Texture" id=2]
+[ext_resource path="res://Resources/ItemResources/BuildableItems/DisplayBins/DisplayCaseOpenTriple.tres" type="Resource" id=3]
+
+
+[node name="DisplayCaseOpenTriple" instance=ExtResource( 1 )]
+build_item = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="7"]
+texture = ExtResource( 2 )
+offset = Vector2( -1, -2 )

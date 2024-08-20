@@ -1,0 +1,321 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Gate.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/ItemResources/BuildableItems/BuildableGateItems/WoodenGate.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Structures/Gates/gate_horizontal_1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Structures/Gates/gate_vertical_1.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "close_gate_down"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "closed"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "close_gate_left"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "closed"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "close_gate_right"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "closed"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "close_gate_up"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "closed"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "open_gate_down"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "opened"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "opened"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "open_gate_right"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "opened"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "open_gate_up"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "opened"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 0.5, 0.5 )
+
+[node name="WoodenGate" instance=ExtResource( 2 )]
+collision_layer = 528
+collision_mask = 528
+script = ExtResource( 1 )
+build_item = ExtResource( 3 )
+horizontal_texture = ExtResource( 4 )
+vertical_texture = ExtResource( 5 )
+
+[node name="CollisionShape2DObstruction" parent="." index="4"]
+visible = true
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="6"]
+anims/close_gate_down = SubResource( 2 )
+anims/close_gate_left = SubResource( 3 )
+anims/close_gate_right = SubResource( 4 )
+anims/close_gate_up = SubResource( 5 )
+anims/open_gate_down = SubResource( 6 )
+anims/open_gate_left = SubResource( 7 )
+anims/open_gate_right = SubResource( 8 )
+anims/open_gate_up = SubResource( 9 )
+
+[node name="Sprite" parent="." index="7"]
+texture = ExtResource( 4 )
+offset = Vector2( -16, -15 )
+hframes = 3
+
+[node name="Area2DLeft" type="Area2D" parent="." index="9"]
+position = Vector2( -8, 8 )
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DLeft" index="0"]
+shape = SubResource( 10 )
+
+[node name="Area2DRight" type="Area2D" parent="." index="10"]
+position = Vector2( 24, 8 )
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DRight" index="0"]
+shape = SubResource( 10 )
+
+[node name="Area2DUp" type="Area2D" parent="." index="11"]
+position = Vector2( 8, -8 )
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DUp" index="0"]
+shape = SubResource( 10 )
+
+[node name="Area2DDown" type="Area2D" parent="." index="12"]
+position = Vector2( 8, 24 )
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDown" index="0"]
+shape = SubResource( 10 )
+
+[connection signal="body_entered" from="Area2DLeft" to="." method="_on_Area2DLeft_entered"]
+[connection signal="body_exited" from="Area2DLeft" to="." method="_on_Area2DLeft_exited"]
+[connection signal="body_entered" from="Area2DRight" to="." method="_on_Area2DRight_entered"]
+[connection signal="body_exited" from="Area2DRight" to="." method="_on_Area2DRight_exited"]
+[connection signal="body_entered" from="Area2DUp" to="." method="_on_Area2DUp_entered"]
+[connection signal="body_exited" from="Area2DUp" to="." method="_on_Area2DUp_exited"]
+[connection signal="body_entered" from="Area2DDown" to="." method="_on_Area2DDown_entered"]
+[connection signal="body_exited" from="Area2DDown" to="." method="_on_Area2DDown_exited"]

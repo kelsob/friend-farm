@@ -1,0 +1,49 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/CropResources/CropSpecies.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Environmental/Plants/Crops/bean_crop_spritesheet.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Bean"
+plant_spritesheet = ExtResource( 2 )
+sprite_offset = Vector2( 0, -16 )
+sun_shade = 0
+shade_tier = 0
+growth_stage = 1
+growth_stages = 7
+base_growth_rate = 1.0
+growth_curve = [ 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0 ]
+mature_stage = 5
+mature = false
+fruiting = false
+fruit_growth_rate = 1.0
+growth_progress_to_next_stage = 0.0
+watered = false
+optimal_watering_curve = [ 2, 4, 6, 8, 10, 15, 20, 20 ]
+watered_growth_acceleration_curve = [ 4.0, 3.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0 ]
+watered_quality_improvement = 0.05
+current_water_level = 0.0
+daily_water_retention = 0.5
+watered_particle_effect_curve = [ [ "res://Scenes/Particles/WateredParticleSphere3.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere3.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere4.tres", Vector2( 8, 4 ) ], [ "res://Scenes/Particles/WateredParticleSphere6.tres", Vector2( 8, 4 ) ], [ "res://Scenes/Particles/WateredParticleBox6x12.tres", Vector2( 8, 2 ) ], [ null, null ], [ "res://Scenes/Particles/WateredParticleSphere8.tres", Vector2( 8, 2 ) ], [ "res://Scenes/Particles/WateredParticleSphere8.tres", Vector2( 8, 2 ) ] ]
+quality = 0.0
+pruned = false
+prune_count = 0
+crop_quantity = 0
+crop_quality = 0.0
+harvestable = false
+multiharvestable = true
+harvest_count = 0
+crop_item_path = "res://Resources/ItemResources/HarvestedCropItems/Bean.tres"
+seed_item_path = "res://Resources/ItemResources/SeedItems/BeanSeed.tres"
+extra_seed_generation_chances = [ 0.5, 0.3, 0.2, 0.1, 0.05, 0.01, 0.001 ]
+seed_harvestable = false
+seed_growth_days = 7
+seed_growth_progression = 0
+cut_tier = 0
+cut_resistance_curve = [ 1.0, 2.0, 3.0 ]
+cut_progress = 0.0
+wood_stored_curve = [ 1.0, 3.0, 6.0 ]
+current_wood_stored = 1
+wood_regeneration_rate = 0.25
+current_wood_regeneration = 0.0

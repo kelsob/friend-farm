@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Objects/Buildings/Doors/Door.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="EdgeExit" instance=ExtResource( 1 )]
+next_scene_path = "Farm"
+perma_open = true
+is_invisible = true
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+texture = null

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/QualityTierResources/QualityTier.gd" type="Script" id=1]
+[ext_resource path="res://Resources/QualityTierResources/2.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+tier = 1
+letter_tier = "D"
+name = "Decent"
+quality_threshold = 1.0
+quality_threshold_to_next = 2.25
+value_modifier = 1.25
+RTEffect_open_primary = "[sparkle freq=8.0 c1=#1eff00 c2=#94ff00]"
+RTEffect_close_primary = "[/sparkle]"
+RTEffect_open_secondary = "[wave amp=8 freq=6]"
+RTEffect_close_secondary = "[/wave]"
+RTEffect_open_tertiary = ""
+RTEffect_close_tertiary = ""
+next_quality_tier = ExtResource( 2 )

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.00537634, 0.75, 0.997312 )
+colors = PoolColorArray( 0.40625, 0.72168, 1, 1, 0.603922, 0.882353, 0.992157, 0.768627, 0.603922, 0.882353, 0.992157, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.25
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 30.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 40.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 50.0
+damping_random = 1.0
+color_ramp = SubResource( 2 )
+
+[node name="WateringCanParticleEffect" type="Particles2D"]
+emitting = false
+lifetime = 0.4
+randomness = 1.0
+process_material = SubResource( 3 )

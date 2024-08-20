@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/HarvestedCropItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/CropItems/blackberry.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Blackberry"
+description = "A torus-filled blackberry."
+sellable = true
+pal_value_base = 0
+pal_value_actual = 0
+texture = ExtResource( 2 )
+unique = false
+quality = 0.0
+stackable = true
+max_stack_size = 25
+current_stack_size = 1
+single_use = true
+hotbar_assignable = true
+capacitied_item = false
+player_encountered = false
+item_type = 3
+edible = true
+food_value_base = 5.0
+food_value_actual = 0.0
+player_use_animation = "Eat"
+player_use_animation_miss = "Eat"

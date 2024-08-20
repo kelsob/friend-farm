@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/QualityTierResources/QualityTier.gd" type="Script" id=1]
+[ext_resource path="res://Resources/QualityTierResources/10.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+tier = 9
+letter_tier = "R"
+name = "Remarkable"
+quality_threshold = 20.0
+quality_threshold_to_next = 24.5
+value_modifier = 1.25
+RTEffect_open_primary = "[sparkle freq=1 c1=#ff8000 c2=#e6cc80]"
+RTEffect_close_primary = "[/sparkle]"
+RTEffect_open_secondary = "[woo]"
+RTEffect_close_secondary = "[/woo]"
+RTEffect_open_tertiary = ""
+RTEffect_close_tertiary = ""
+next_quality_tier = ExtResource( 2 )

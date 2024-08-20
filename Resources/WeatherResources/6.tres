@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/WeatherTypeResource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Light Rain"
+id = 6
+node_id = 0
+color_progression = [ Color( 0.627451, 0.701961, 0.776471, 1 ), Color( 0.847059, 0.933333, 0.956863, 1 ), Color( 0.933333, 0.933333, 0.933333, 1 ), Color( 0.839216, 0.960784, 0.968627, 1 ), Color( 0.776471, 0.686275, 1, 1 ), Color( 0.509804, 0.509804, 0.878431, 1 ), Color( 0.101961, 0.101961, 0.439216, 1 ), Color( 0, 0, 0, 1 ) ]
+light_level_progression = [ 0.4, 0.7, 1.0, 0.8, 0.5, 0.2, 0.0 ]
+precipitation_level = 0
+weather_transition_weights = [ 4, 3, 6, 6, 0, 0, 10, 8, 6, 0, 0, 0 ]

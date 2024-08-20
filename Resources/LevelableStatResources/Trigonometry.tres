@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/LevelableStats/Trigonometry.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = 6
+name = "Trigonometry"
+description = "<Player>'s knowledge of triangle properties. CRITICAL."
+level_nicknames = [ "", "", "", "", "", "", "" ]
+current_level = 0
+experience_curve = [ 100, 250, 500, 1000, 2500, 5000 ]
+total_levels = 6
+hidden = true

@@ -1,0 +1,157 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scenes/Objects/Buildings/Building.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Structures/Buildings/FarmHouse/farmhouse_base.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Objects/Buildings/Doors/DoorWindowedLeft.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Structures/Buildings/WeatherVane.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/WeatherVane.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/FarmHousePlayer.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Particles/BuildingWaterEffects/RoofWaterLedge.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Particles/BuildingWaterEffects/RoofWaterBack.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Particles/BuildingWaterEffects/RoofWaterFront.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Structures/Buildings/FarmHouse/farmhouse_top.png" type="Texture" id=11]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.208738, 0.33657, 0.694175, 1 )
+colors = PoolColorArray( 0.931717, 0.977539, 0.971901, 1, 0.78923, 0.798895, 0.801758, 1, 0.895805, 0.99707, 0.994104, 1, 0.673878, 0.707219, 0.71582, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0737629, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+trail_divisor = 12
+trail_size_modifier = SubResource( 7 )
+emission_shape = 2
+emission_box_extents = Vector3( 39, 14, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 16.0
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+damping = 22.42
+scale_random = 1.0
+color = Color( 0.54902, 0.796078, 0.956863, 0.792157 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+trail_divisor = 12
+trail_size_modifier = SubResource( 7 )
+emission_shape = 2
+emission_box_extents = Vector3( 39, 14, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 16.0
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+damping = 22.42
+scale_random = 1.0
+color = Color( 0.54902, 0.796078, 0.956863, 0.792157 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+trail_divisor = 12
+trail_size_modifier = SubResource( 7 )
+emission_shape = 2
+emission_box_extents = Vector3( 39, 14, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 16.0
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+damping = 22.42
+scale_random = 1.0
+color = Color( 0.54902, 0.796078, 0.956863, 0.792157 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+trail_divisor = 12
+trail_size_modifier = SubResource( 7 )
+emission_shape = 2
+emission_box_extents = Vector3( 39, 14, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 16.0
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+damping = 22.42
+scale_random = 1.0
+color = Color( 0.54902, 0.796078, 0.956863, 0.792157 )
+color_ramp = SubResource( 3 )
+
+[node name="FarmHousePlayer" instance=ExtResource( 1 )]
+collision_layer = 2
+constant_linear_velocity = Vector2( 2, 0 )
+script = ExtResource( 6 )
+tile_dimensions = Vector2( 5, 2 )
+structure_cells = [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 0 ), Vector2( 0, 1 ), Vector2( 1, 1 ), Vector2( 2, 1 ), Vector2( 3, 1 ), Vector2( 4, 1 ) ]
+porch_cells = [ Vector2( 5, 0 ), Vector2( 6, 0 ), Vector2( 5, 1 ), Vector2( 6, 1 ), Vector2( 0, 2 ), Vector2( 1, 2 ), Vector2( 2, 2 ), Vector2( 3, 2 ), Vector2( 4, 2 ), Vector2( 5, 2 ), Vector2( 6, 2 ) ]
+porch_connectors = [ [ Vector2( 2, 2 ), Vector2( 0, 1 ) ] ]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+offset = Vector2( -16, -104 )
+
+[node name="RoofWaterFront" parent="WeatheredEffects" index="0" instance=ExtResource( 9 )]
+
+[node name="Particles2DLight" parent="WeatheredEffects/RoofWaterFront" index="0"]
+process_material = SubResource( 8 )
+
+[node name="Particles2DNormal" parent="WeatheredEffects/RoofWaterFront" index="1"]
+process_material = SubResource( 9 )
+
+[node name="Particles2DHeavy" parent="WeatheredEffects/RoofWaterFront" index="2"]
+process_material = SubResource( 10 )
+
+[node name="Particles2DTorrential" parent="WeatheredEffects/RoofWaterFront" index="3"]
+process_material = SubResource( 11 )
+
+[node name="RoofWaterBack" parent="WeatheredEffects" index="1" instance=ExtResource( 8 )]
+
+[node name="RoofWaterLedge" parent="WeatheredEffects" index="2" instance=ExtResource( 7 )]
+
+[node name="WeatherVane" type="Sprite" parent="." index="2"]
+position = Vector2( 40, -65 )
+z_index = 11
+texture = ExtResource( 4 )
+hframes = 10
+script = ExtResource( 5 )
+
+[node name="Tween" type="Tween" parent="WeatherVane" index="0"]
+
+[node name="SmolTimer" type="Timer" parent="WeatherVane" index="1"]
+
+[node name="BigTimer" type="Timer" parent="WeatherVane" index="2"]
+wait_time = 20.0
+
+[node name="Sprite" type="Sprite" parent="RooftopSprites" index="0"]
+position = Vector2( 0, 48 )
+texture = ExtResource( 11 )
+centered = false
+offset = Vector2( -16, -152 )
+
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2( 40, 16 )
+
+[node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
+position = Vector2( 32, 17 )
+next_scene_path = "PlayerHouseFloor1"
+spawn_direction = Vector2( 0, -1 )
+
+[connection signal="timeout" from="WeatherVane/SmolTimer" to="WeatherVane" method="_on_SmolTimer_timeout"]
+[connection signal="timeout" from="WeatherVane/BigTimer" to="WeatherVane" method="_on_BigTimer_timeout"]
+
+[editable path="WeatheredEffects/RoofWaterFront"]

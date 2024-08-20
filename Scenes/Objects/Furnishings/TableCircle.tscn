@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Structures/Tables/table_circle.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/ItemResources/BuildableItems/TableCircular.tres" type="Resource" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="TableCircle" instance=ExtResource( 2 )]
+tile_dimensions = Vector2( 2, 2 )
+build_item = ExtResource( 3 )
+
+[node name="CollisionShape2DObstruction" parent="." index="4"]
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="7"]
+texture = ExtResource( 1 )

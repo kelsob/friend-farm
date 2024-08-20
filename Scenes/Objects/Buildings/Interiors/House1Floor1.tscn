@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Objects/Buildings/Interiors/BuildingInterior.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Buildings/Doors/DoorCityHallLeft.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Objects/Buildings/Interiors/InteriorWallObstructor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/MainScenes/WorldScenes/SceneTransitionPosition.gd" type="Script" id=4]
+
+[node name="House1Floor1" instance=ExtResource( 1 )]
+scene_tile_dimensions = Vector2( 9, 4 )
+
+[node name="BaseTileMap" parent="." index="2"]
+tile_data = PoolIntArray( -131072, 1, 6, -131071, 1, 6, -131070, 1, 6, -131069, 1, 6, -131068, 1, 6, -131067, 1, 6, -131066, 1, 6, -131065, 1, 6, 0, 0, 17, 1, 0, 17, 2, 0, 17, 3, 0, 17, 4, 0, 17, 5, 0, 17, 6, 0, 17, 7, 0, 17, 65536, 0, 17, 65537, 0, 17, 65538, 0, 17, 65539, 0, 17, 65540, 0, 17, 65541, 0, 17, 65542, 0, 17, 65543, 0, 17, 131072, 0, 17, 131073, 0, 17, 131074, 0, 17, 131075, 0, 17, 131076, 0, 17, 131077, 0, 17, 131078, 0, 17, 131079, 0, 17, 196608, 0, 17, 196609, 0, 17, 196610, 0, 17, 196611, 0, 17, 196612, 0, 17, 196613, 0, 17, 196614, 0, 17, 196615, 0, 17 )
+
+[node name="WallObstructor" parent="WallObstructors" index="0" instance=ExtResource( 3 )]
+position = Vector2( 0, -16 )
+scale = Vector2( 8, 1 )
+
+[node name="WallObstructor2" parent="WallObstructors" index="1" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+scale = Vector2( 1, 4 )
+
+[node name="WallObstructor3" parent="WallObstructors" index="2" instance=ExtResource( 3 )]
+position = Vector2( 0, 64 )
+scale = Vector2( 8, 1 )
+
+[node name="WallObstructor4" parent="WallObstructors" index="3" instance=ExtResource( 3 )]
+position = Vector2( -16, 0 )
+scale = Vector2( 1, 4 )
+
+[node name="0TownEntrance" type="Position2D" parent="EntrancePositions" index="0"]
+position = Vector2( 32, 48 )
+script = ExtResource( 4 )
+connected_entrance = 19
+
+[node name="Door" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( 32, 64 )
+next_scene_path = "Town"
+spawn_location = 19
+spawn_direction = Vector2( 0, 1 )

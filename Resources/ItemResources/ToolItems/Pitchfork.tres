@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/ForkItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/ToolItems/pitchfork.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Pitchfork"
+description = "A pitchfork for carrying hay."
+sellable = true
+energy_cost = 1
+pal_value_base = 50
+pal_value_actual = 50
+texture = ExtResource( 2 )
+unique = false
+quality = 0.0
+stackable = false
+max_stack_size = 1
+current_stack_size = 1
+single_use = false
+hotbar_assignable = true
+capacitied_item = false
+player_encountered = false
+item_type = 7
+player_use_animation = "Swing"
+player_use_animation_miss = "Swing"

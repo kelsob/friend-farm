@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/InteractableObject.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/WeatheredEffects.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 0.5, 0.5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "WeatheredEffectAppear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("WeatheredEffects:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "WeatheredEffectDisappear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("WeatheredEffects:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="InteractableObject" type="Area2D"]
+z_index = 5
+collision_layer = 15378
+collision_mask = 15890
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Area2DInteractable" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DInteractable"]
+
+[node name="Area2DPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DPlayer"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2DObstruction" type="CollisionShape2D" parent="."]
+visible = false
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/WeatheredEffectAppear = SubResource( 3 )
+anims/WeatheredEffectDisappear = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+centered = false
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+rect = Rect2( 0, 0, 16, 16 )
+
+[node name="WeatheredEffects" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Area2DPlayer" to="." method="_on_Area2DPlayer_area_entered"]
+[connection signal="area_exited" from="Area2DPlayer" to="." method="_on_Area2DPlayer_area_exited"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_tween_completed"]

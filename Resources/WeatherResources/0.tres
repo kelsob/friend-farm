@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/WeatherTypeResource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Clear"
+id = 0
+node_id = -1
+color_progression = [ Color( 0.627451, 0.701961, 0.776471, 1 ), Color( 1, 0.976471, 0.796078, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.988235, 0.898039, 1 ), Color( 1, 0.694118, 0.952941, 1 ), Color( 0.552941, 0.552941, 0.913725, 1 ), Color( 0.1, 0.1, 0.44, 1 ), Color( 0, 0, 0, 1 ) ]
+light_level_progression = [ 0.4, 0.7, 1.0, 0.8, 0.5, 0.2, 0.0 ]
+precipitation_level = 0
+weather_transition_weights = [ 8, 8, 10, 0, 0, 0, 10, 8, 2, 0, 0, 0 ]

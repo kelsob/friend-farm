@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Environment/Plants/Flowers/Rose.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Environmental/Plants/Flowers/rose.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.0329218, 0.0851064 )
+colors = PoolColorArray( 0.937255, 0.976471, 1, 1, 0.611765, 0.858824, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.25
+emission_shape = 1
+emission_sphere_radius = 3.0
+flag_disable_z = true
+direction = Vector3( -1, 1, 0 )
+gravity = Vector3( 0, 16, 0 )
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+
+uniform vec4 original_0: hint_color;
+uniform vec4 original_1: hint_color;
+uniform vec4 original_2: hint_color;
+uniform vec4 original_3: hint_color;
+uniform vec4 original_4: hint_color;
+uniform vec4 original_5: hint_color;
+uniform vec4 replace_0: hint_color;
+uniform vec4 replace_1: hint_color;
+uniform vec4 replace_2: hint_color;
+uniform vec4 replace_3: hint_color;
+uniform vec4 replace_4: hint_color;
+uniform vec4 replace_5: hint_color;
+
+const float precision = 0.001;
+
+
+vec4 swap_color(vec4 color){
+	vec4 original_colors[6] = vec4[6] (original_0, original_1, original_2, original_3, original_4, original_5);
+	vec4 replace_colors[6] = vec4[6] (replace_0, replace_1, replace_2, replace_3, replace_4, replace_5);
+	for (int i = 0; i < 6; i ++) {
+		if (distance(color, original_colors[i]) <= precision){
+			return replace_colors[i];
+		}
+	}
+	return color;
+}
+
+
+void fragment() {
+	COLOR = swap_color(texture(TEXTURE, UV));
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/original_0 = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
+shader_param/original_1 = Color( 0.192157, 0.192157, 0.192157, 1 )
+shader_param/original_2 = Color( 0.356863, 0.356863, 0.356863, 1 )
+shader_param/original_3 = Color( 0.45098, 0.45098, 0.45098, 1 )
+shader_param/original_4 = Color( 0.52549, 0.52549, 0.52549, 1 )
+shader_param/original_5 = Color( 0.686275, 0.686275, 0.686275, 1 )
+shader_param/replace_0 = Color( 0.188235, 0, 0, 1 )
+shader_param/replace_1 = Color( 0.380392, 0, 0, 1 )
+shader_param/replace_2 = Color( 0.635294, 0.0745098, 0.0745098, 1 )
+shader_param/replace_3 = Color( 0.741176, 0.156863, 0.156863, 1 )
+shader_param/replace_4 = Color( 0.811765, 0.235294, 0.235294, 1 )
+shader_param/replace_5 = Color( 0.960784, 0.407843, 0.407843, 1 )
+
+[node name="RoseFlower" instance=ExtResource( 1 )]
+growth_stage_override = 6
+
+[node name="WateredEffect" parent="." index="9"]
+position = Vector2( 8, 6 )
+process_material = SubResource( 3 )
+
+[node name="Sprite" parent="." index="13"]
+material = SubResource( 5 )
+texture = ExtResource( 2 )
+frame = 0

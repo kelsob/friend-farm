@@ -1,0 +1,37 @@
+{
+	"glossary": [
+
+	],
+	"variables": [
+		{
+			"id": "1649087244-366",
+			"name": "PurchaseItemName",
+			"type": 0,
+			"value": "Item Name"
+		},
+		{
+			"id": "1649087206-787",
+			"name": "PurchaseItemCost",
+			"type": 0,
+			"value": "1"
+		},
+		{
+			"id": "1649090118-233",
+			"name": "ItemQuantityPurchased",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1649087873-616",
+			"name": "PurchaseItemQuantityAvailable",
+			"type": 0,
+			"value": "1"
+		},
+		{
+			"id": "1649087154-648",
+			"name": "PlayerCurrency",
+			"type": 0,
+			"value": "0"
+		}
+	]
+}

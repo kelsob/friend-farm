@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/WeatherTypeResource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Torrential Rain"
+id = 9
+node_id = 3
+color_progression = [ Color( 0.376471, 0.470588, 0.556863, 1 ), Color( 0.435294, 0.584314, 0.623529, 1 ), Color( 0.584314, 0.705882, 0.721569, 1 ), Color( 0.470588, 0.631373, 0.670588, 1 ), Color( 0.270588, 0.490196, 0.545098, 1 ), Color( 0.184314, 0.294118, 0.498039, 1 ), Color( 0.1, 0.1, 0.44, 1 ), Color( 0, 0, 0, 1 ) ]
+light_level_progression = [ 0.4, 0.7, 1.0, 0.8, 0.5, 0.2, 0.0 ]
+precipitation_level = 0
+weather_transition_weights = [ 0, 10, 10, 10, 0, 0, 4, 6, 8, 10, 0, 0 ]

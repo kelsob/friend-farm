@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/QualityTierResources/QualityTier.gd" type="Script" id=1]
+[ext_resource path="res://Resources/QualityTierResources/3.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+tier = 2
+letter_tier = "C"
+name = "Choice"
+quality_threshold = 2.25
+quality_threshold_to_next = 3.5
+value_modifier = 1.25
+RTEffect_open_primary = "[sparkle freq=1.0 c1=#0070dd c2=#55a6f6]"
+RTEffect_close_primary = "[/sparkle]"
+RTEffect_open_secondary = "[shake rate=3 level=6]"
+RTEffect_close_secondary = "[/shake]"
+RTEffect_open_tertiary = ""
+RTEffect_close_tertiary = ""
+next_quality_tier = ExtResource( 2 )

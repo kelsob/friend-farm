@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Objects/Plants/CropObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/CropResources/Blackberry.tres" type="Resource" id=2]
+[ext_resource path="res://Assets/Environmental/Plants/Crops/bush_blackberry_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Particles/WateredParticleSphere8.tres" type="Material" id=4]
+
+
+
+[node name="CropObject" instance=ExtResource( 1 )]
+species_override = ExtResource( 2 )
+growth_stage_override = 6
+
+[node name="WateredEffect" parent="." index="5"]
+position = Vector2( 8, 2 )
+process_material = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="8"]
+texture = ExtResource( 3 )
+offset = Vector2( -5, -18 )
+hframes = 6
+frame = 4

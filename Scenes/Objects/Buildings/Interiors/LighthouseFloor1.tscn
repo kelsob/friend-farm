@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Objects/Buildings/Interiors/BuildingInterior.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Buildings/Doors/DoorBlue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Objects/Buildings/Interiors/InteriorWallObstructor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/MainScenes/WorldScenes/SceneTransitionPosition.gd" type="Script" id=4]
+
+[node name="LighthouseFloor1" instance=ExtResource( 1 )]
+
+[node name="BaseTileMap" parent="." index="2"]
+tile_data = PoolIntArray( -131070, 1, 6, -131069, 1, 6, -131068, 1, 6, -65535, 1, 6, -65531, 1, 6, -65529, 1, 6, -65528, 1, 6, -65527, 1, 6, -65526, 1, 6, -65525, 1, 6, -65524, 1, 6, 0, 1, 6, 2, 0, 10, 3, 0, 24, 4, 0, 10, 6, 1, 6, 65537, 0, 10, 65538, 0, 24, 65539, 0, 24, 65540, 0, 24, 65541, 0, 10, 65543, 0, 24, 65544, 0, 10, 65545, 0, 24, 65546, 0, 24, 65547, 0, 10, 65548, 0, 24, 131072, 0, 10, 131073, 0, 24, 131074, 0, 10, 131075, 0, 24, 131076, 0, 10, 131077, 0, 24, 131078, 0, 24, 131079, 0, 24, 131080, 0, 24, 131081, 0, 24, 131082, 0, 24, 131083, 0, 24, 131084, 0, 24, 196608, 0, 24, 196609, 0, 24, 196610, 0, 24, 196611, 0, 10, 196612, 0, 24, 196613, 0, 10, 196614, 0, 24, 196615, 0, 10, 196616, 0, 24, 196617, 0, 24, 196618, 0, 24, 196619, 0, 24, 196620, 0, 10, 262144, 0, 10, 262145, 0, 24, 262146, 0, 10, 262147, 0, 24, 262148, 0, 10, 262149, 0, 24, 262150, 0, 24, 262151, 0, 24, 262152, 0, 24, 262153, 0, 24, 262154, 0, 24, 262155, 0, 24, 262156, 0, 24, 327681, 0, 10, 327682, 0, 24, 327683, 0, 24, 327684, 0, 24, 327685, 0, 10, 327687, 0, 24, 327688, 0, 10, 327689, 0, 24, 327690, 0, 24, 327691, 0, 10, 327692, 0, 24, 393218, 0, 10, 393219, 0, 24, 393220, 0, 10 )
+
+[node name="WallObstructor" parent="WallObstructors" index="0" instance=ExtResource( 3 )]
+position = Vector2( 0, 16 )
+
+[node name="WallObstructor2" parent="WallObstructors" index="1" instance=ExtResource( 3 )]
+position = Vector2( 16, 0 )
+
+[node name="WallObstructor3" parent="WallObstructors" index="2" instance=ExtResource( 3 )]
+position = Vector2( 32, -16 )
+scale = Vector2( 3, 1 )
+
+[node name="WallObstructor4" parent="WallObstructors" index="3" instance=ExtResource( 3 )]
+position = Vector2( 80, 0 )
+
+[node name="WallObstructor5" parent="WallObstructors" index="4" instance=ExtResource( 3 )]
+position = Vector2( 96, 16 )
+
+[node name="WallObstructor6" parent="WallObstructors" index="5" instance=ExtResource( 3 )]
+position = Vector2( 112, 0 )
+scale = Vector2( 6, 1 )
+
+[node name="WallObstructor7" parent="WallObstructors" index="6" instance=ExtResource( 3 )]
+position = Vector2( 208, 16 )
+scale = Vector2( 1, 5 )
+
+[node name="WallObstructor8" parent="WallObstructors" index="7" instance=ExtResource( 3 )]
+position = Vector2( 112, 96 )
+scale = Vector2( 6, 1 )
+
+[node name="WallObstructor9" parent="WallObstructors" index="8" instance=ExtResource( 3 )]
+position = Vector2( 96, 80 )
+
+[node name="WallObstructor10" parent="WallObstructors" index="9" instance=ExtResource( 3 )]
+position = Vector2( 80, 96 )
+
+[node name="WallObstructor11" parent="WallObstructors" index="10" instance=ExtResource( 3 )]
+position = Vector2( 32, 112 )
+scale = Vector2( 3, 1 )
+
+[node name="WallObstructor12" parent="WallObstructors" index="11" instance=ExtResource( 3 )]
+position = Vector2( 16, 96 )
+
+[node name="WallObstructor13" parent="WallObstructors" index="12" instance=ExtResource( 3 )]
+position = Vector2( 0, 80 )
+
+[node name="WallObstructor14" parent="WallObstructors" index="13" instance=ExtResource( 3 )]
+position = Vector2( -16, 32 )
+scale = Vector2( 1, 3 )
+
+[node name="0EntranceTown" type="Position2D" parent="EntrancePositions" index="0"]
+position = Vector2( 48, 96 )
+script = ExtResource( 4 )
+connected_entrance = 16
+
+[node name="Door" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( 48, 112 )
+next_scene_path = "Town"
+spawn_location = 16
+spawn_direction = Vector2( 0, 1 )

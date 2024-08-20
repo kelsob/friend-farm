@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/FlowerResources/FlowerSpecies.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Environmental/Plants/Flowers/forget-me-not.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Forget-Me-Not"
+spritesheet = ExtResource( 2 )
+sprite_offset = Vector2( -2, -16 )
+sun_shade = 1
+shade_tier = 0
+growth_stage = 1
+growth_stages = 6
+base_growth_rate = 1.0
+growth_curve = [ 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0 ]
+mature_stage = 4
+mature = false
+flowering = false
+flower_growth_rate = 1.0
+growth_progress_to_next_stage = 0.0
+spreading = false
+random_spread_chance_base = 0.01
+random_spread_chance_current = 0.01
+watered = false
+optimal_watering_curve = [ 6, 7, 8, 9, 10, 11 ]
+watered_growth_acceleration_curve = [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ]
+watered_quality_improvement = 0.05
+current_water_level = 0.0
+daily_water_retention = 0.25
+watered_particle_effect_curve = [ [ "res://Scenes/Particles/WateredParticleSphere3.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere3.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere4.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere6.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere8.tres", Vector2( 8, 6 ) ], [ "res://Scenes/Particles/WateredParticleSphere8.tres", Vector2( 8, 6 ) ] ]
+flower_quantity = 0
+quality = 0.0
+pruned = false
+prune_count = 0
+harvestable = false
+multiharvestable = false
+harvest_count = 0
+flower_item_path = "res://Resources/ItemResources/HarvestedFlowerItems/Forget-Me-Not.tres"
+flower_object_path = "res://Scenes/Environment/Plants/Flowers/Forget-Me-Not.tscn"
+cut_tier = 0

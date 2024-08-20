@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Environmental/Plants/Crops/cauliflower_crop_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/CropObject.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Particles/WateredDripEffect.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 0.5, 0.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 8 )
+
+[node name="CropObject" instance=ExtResource( 2 )]
+collision_layer = 146
+collision_mask = 129
+script = ExtResource( 3 )
+
+[node name="Area2DPlant" type="Area2D" parent="." index="2"]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DPlant" index="0"]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[node name="Area2DShade" type="Area2D" parent="." index="3"]
+visible = false
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DShade" index="0"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="Area2DInteractable" index="0"]
+position = Vector2( 8, 8 )
+shape = SubResource( 3 )
+
+[node name="WateredEffect" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( 9, 6 )
+randomness = 1.0
+
+[node name="CollisionShape2DObstruction" parent="." index="7"]
+position = Vector2( 8, 8 )
+shape = SubResource( 4 )
+
+[node name="Sprite" parent="." index="10"]
+texture = ExtResource( 1 )
+hframes = 5

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/WeatherTypeResource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Windy"
+id = 1
+node_id = 7
+color_progression = [ Color( 0.627451, 0.701961, 0.776471, 1 ), Color( 0.9, 0.9, 0.98, 1 ), Color( 1, 1, 1, 1 ), Color( 0.53, 0.81, 0.98, 1 ), Color( 0.53, 0.81, 0.92, 1 ), Color( 0, 0, 0.55, 1 ), Color( 0.1, 0.1, 0.44, 1 ), Color( 0, 0, 0, 1 ) ]
+light_level_progression = [ 0.4, 0.7, 1.0, 0.8, 0.5, 0.2, 0.0 ]
+precipitation_level = 0
+weather_transition_weights = [ 8, 10, 8, 0, 0, 0, 8, 6, 4, 0, 0, 0 ]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Weather/fog.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Weather/fog_large.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/WeatherParticleEffect.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.0874126, 0.258741, 0.611888, 0.996503 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.756863, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+max_value = 3.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.47273 ), 0.678424, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+trail_divisor = 4
+trail_size_modifier = SubResource( 8 )
+emission_shape = 2
+emission_box_extents = Vector3( 240, 160, 1 )
+flag_rotate_y = true
+flag_disable_z = true
+direction = Vector3( 1, 1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+damping = 10.0
+damping_random = 1.0
+scale_random = 0.2
+color = Color( 1, 1, 1, 0.12549 )
+color_ramp = SubResource( 6 )
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0.002079, 0.153846, 0.985447 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 0.2
+trail_divisor = 2
+emission_shape = 2
+emission_box_extents = Vector3( 120, 90, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 1, 1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 10.0
+color_ramp = SubResource( 11 )
+
+[node name="Foggy" type="Particles2D"]
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( 120, 80 )
+z_index = 6
+z_as_relative = false
+emitting = false
+amount = 512
+lifetime = 12.0
+preprocess = 12.0
+explosiveness = 0.1
+randomness = 1.0
+fract_delta = false
+visibility_rect = Rect2( -240, -160, 480, 320 )
+process_material = SubResource( 4 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+particle_children_ids = [ 0 ]
+
+[node name="FogBase" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.25098 )
+z_as_relative = false
+emitting = false
+amount = 256
+lifetime = 18.0
+preprocess = 18.0
+fract_delta = false
+process_material = SubResource( 9 )
+texture = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]

@@ -1,0 +1,205 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/UI/Buttons/dismantle_button.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/HotbarBuild.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/ActiveItemLabel.gd" type="Script" id=4]
+[ext_resource path="res://Assets/UI/HotBar/Background.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "appear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disappear_finished"
+} ]
+}
+
+[node name="HotbarBuild" type="Node2D"]
+position = Vector2( 160, 148 )
+z_index = 50
+z_as_relative = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.768627 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -78.5
+margin_top = -10.0
+margin_right = 78.5
+margin_bottom = 10.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DismantleButton" type="TextureButton" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -97.0
+margin_top = -8.0
+margin_right = -81.0
+margin_bottom = 8.0
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HotbarSlots" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.5
+margin_top = -9.0
+margin_right = 76.5
+margin_bottom = 9.0
+custom_constants/hseparation = -1
+columns = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveItemLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -69.0
+margin_top = -20.0
+margin_right = 73.0
+margin_bottom = -7.0
+rect_min_size = Vector2( 142, 0 )
+bbcode_enabled = true
+bbcode_text = "default_text"
+visible_characters = 0
+percent_visible = 0.0
+text = "default_text"
+scroll_active = false
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="ActiveItemLabel"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActiveItemLabel"]
+anims/FadeOut = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="ActiveItemLabel"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/appear = SubResource( 2 )
+anims/disappear = SubResource( 3 )
+[connection signal="tween_completed" from="ActiveItemLabel/Tween" to="ActiveItemLabel" method="_on_tween_completed"]
+[connection signal="timeout" from="ActiveItemLabel/Timer" to="ActiveItemLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_tween_completed"]

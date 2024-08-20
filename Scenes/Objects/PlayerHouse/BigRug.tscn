@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/SetDec/BigRug.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/ItemResources/BuildableItems/BigRug.tres" type="Resource" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 16 )
+
+[node name="BigRug" instance=ExtResource( 2 )]
+build_item = ExtResource( 3 )
+
+[node name="Area2DInteractable" parent="." index="2"]
+visible = true
+
+[node name="CollisionShape2D" parent="Area2DInteractable" index="0"]
+position = Vector2( 24, 16 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="7"]
+position = Vector2( 3, 1 )
+texture = ExtResource( 1 )

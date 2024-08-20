@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Structures/Signs/sign_small.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/ItemResources/BuildableItems/SignSmall.tres" type="Resource" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="SignSmall" instance=ExtResource( 2 )]
+build_item = ExtResource( 3 )
+
+[node name="CollisionShape2DObstruction" parent="." index="4"]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="7"]
+texture = ExtResource( 1 )
+offset = Vector2( -2, -3 )

@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Structures/PlayerHouse/FarmHouseStartInteriorFloor1.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/PlayerHouse/Window.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Objects/PlayerHouse/RailingStairsDown.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Objects/PlayerHouse/BaxterPoster.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/PlayerHouse/Bookshelf.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Objects/PlayerHouse/BedsideTable.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Objects/PlayerHouse/PlayerBed.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Objects/PlayerHouse/AlarmClock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/PlayerHouse/BigRug.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Objects/Buildings/Interiors/BuildingInterior.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Objects/Buildings/Interiors/InteriorWallObstructor.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Objects/Buildings/Doors/Door.tscn" type="PackedScene" id=12]
+
+[node name="PlayerHouseFloor2" instance=ExtResource( 10 )]
+connected_scenes = [ "PlayerHouseFloor1" ]
+
+[node name="TextureRect" parent="." index="1"]
+margin_top = -8.0
+margin_right = 160.0
+margin_bottom = 128.0
+texture = ExtResource( 1 )
+
+[node name="BigRug" parent="." index="2" instance=ExtResource( 9 )]
+position = Vector2( 48, 64 )
+
+[node name="WallObstructor" parent="WallObstructors" index="0" instance=ExtResource( 11 )]
+scale = Vector2( 10, 1 )
+
+[node name="WallObstructor2" parent="WallObstructors" index="1" instance=ExtResource( 11 )]
+position = Vector2( -16, 16 )
+scale = Vector2( 1, 7 )
+
+[node name="WallObstructor3" parent="WallObstructors" index="2" instance=ExtResource( 11 )]
+position = Vector2( 160, 16 )
+scale = Vector2( 1, 7 )
+
+[node name="WallObstructor4" parent="WallObstructors" index="3" instance=ExtResource( 11 )]
+position = Vector2( 0, 128 )
+scale = Vector2( 10, 1 )
+
+[node name="BedsideTable" parent="YSort" index="0" instance=ExtResource( 6 )]
+position = Vector2( 112, 16 )
+
+[node name="RailingStairsDown" parent="YSort" index="1" instance=ExtResource( 3 )]
+position = Vector2( 16, 16 )
+
+[node name="Bed" parent="YSort" index="2" instance=ExtResource( 7 )]
+position = Vector2( 128, 16 )
+
+[node name="AlarmClock" parent="YSort" index="3" instance=ExtResource( 8 )]
+position = Vector2( 112, 16 )
+
+[node name="InteractableObject" parent="YSort" index="4" instance=ExtResource( 5 )]
+position = Vector2( 64, 0 )
+
+[node name="Window" parent="YSort" index="5" instance=ExtResource( 2 )]
+position = Vector2( 80, 0 )
+
+[node name="BaxterPoster" parent="YSort" index="6" instance=ExtResource( 4 )]
+
+[node name="Position2D" type="Position2D" parent="EntrancePositions" index="0"]
+position = Vector2( 0, 16 )
+
+[node name="Door" parent="." index="13" instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 16, 16 )
+next_scene_path = "PlayerHouseFloor1"
+perma_open = true
+is_invisible = true
+spawn_location = 1
+spawn_direction = Vector2( 1, 0 )

@@ -1,0 +1,107 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Fonts/m3x6.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/ItemQualityTierDisplay.gd" type="Script" id=2]
+[ext_resource path="res://FX/RichTextEffects/Ghost.gd" type="Script" id=3]
+[ext_resource path="res://FX/RichTextEffects/ColorMod.gd" type="Script" id=4]
+[ext_resource path="res://FX/RichTextEffects/Sparkle.gd" type="Script" id=5]
+[ext_resource path="res://FX/RichTextEffects/Rain.gd" type="Script" id=6]
+[ext_resource path="res://FX/RichTextEffects/UwU.gd" type="Script" id=7]
+[ext_resource path="res://FX/RichTextEffects/Woo.gd" type="Script" id=8]
+[ext_resource path="res://FX/RichTextEffects/Cuss.gd" type="Script" id=9]
+[ext_resource path="res://FX/RichTextEffects/Jump.gd" type="Script" id=10]
+[ext_resource path="res://FX/RichTextEffects/Heart.gd" type="Script" id=11]
+[ext_resource path="res://FX/RichTextEffects/L33T.gd" type="Script" id=12]
+[ext_resource path="res://FX/RichTextEffects/Nervous.gd" type="Script" id=13]
+[ext_resource path="res://FX/RichTextEffects/Number.gd" type="Script" id=14]
+
+[sub_resource type="RichTextEffect" id=1]
+script = ExtResource( 4 )
+
+[sub_resource type="RichTextEffect" id=2]
+script = ExtResource( 9 )
+
+[sub_resource type="RichTextEffect" id=3]
+script = ExtResource( 3 )
+
+[sub_resource type="RichTextEffect" id=4]
+script = ExtResource( 11 )
+
+[sub_resource type="RichTextEffect" id=5]
+script = ExtResource( 10 )
+
+[sub_resource type="RichTextEffect" id=6]
+script = ExtResource( 12 )
+
+[sub_resource type="RichTextEffect" id=7]
+script = ExtResource( 13 )
+
+[sub_resource type="RichTextEffect" id=8]
+script = ExtResource( 14 )
+
+[sub_resource type="RichTextEffect" id=9]
+script = ExtResource( 6 )
+
+[sub_resource type="RichTextEffect" id=10]
+script = ExtResource( 5 )
+
+[sub_resource type="RichTextEffect" id=11]
+script = ExtResource( 7 )
+
+[sub_resource type="RichTextEffect" id=12]
+script = ExtResource( 8 )
+
+[node name="ItemQualityTierDisplay" type="Control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -4.5
+margin_bottom = 4.5
+rect_min_size = Vector2( 108, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemNameLabel" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -4.5
+margin_right = 96.0
+margin_bottom = 4.5
+rect_min_size = Vector2( 96, 0 )
+rect_clip_content = false
+size_flags_horizontal = 0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Item Name"
+text = "Item Name"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCountLabel" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -4.5
+margin_bottom = 4.5
+rect_min_size = Vector2( 16, 0 )
+size_flags_horizontal = 10
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "x00"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

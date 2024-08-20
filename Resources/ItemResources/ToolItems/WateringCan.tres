@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/WateringCanTool.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/ToolItems/watering_can.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Items/ToolItems/watering_can_spritesheet.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Watering Can"
+description = "Waters plant to help them grow and make them nicer."
+sellable = true
+energy_cost = 1
+pal_value_base = 35
+pal_value_actual = 35
+texture = ExtResource( 2 )
+unique = false
+quality = 0.0
+stackable = false
+max_stack_size = 1
+current_stack_size = 1
+single_use = false
+hotbar_assignable = true
+capacitied_item = true
+player_encountered = false
+item_type = 7
+character_equipped_spritesheet = ExtResource( 3 )
+capacity = 100.0
+use_rate = 5.0
+fill_rate = 20.0
+player_use_animation = "KneelStay"
+player_use_animation_miss = "Kneel"

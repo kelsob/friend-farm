@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="StaticObject" type="Area2D"]
+collision_layer = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+centered = false

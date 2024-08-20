@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/QualityTierResources/QualityTier.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+tier = 12
+letter_tier = "GOD"
+name = "GOD"
+quality_threshold = 40.0
+quality_threshold_to_next = 100.0
+value_modifier = 1.25
+RTEffect_open_primary = "[sparkle freq=8 c1=#d7aa25 c2=#e6cc80]"
+RTEffect_close_primary = "[/sparkle]"
+RTEffect_open_secondary = "[heart]"
+RTEffect_close_secondary = "[/heart]"
+RTEffect_open_tertiary = "[nervous]"
+RTEffect_close_tertiary = "[/nervous]"

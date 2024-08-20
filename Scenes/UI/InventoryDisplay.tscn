@@ -1,0 +1,224 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Fonts/m3x6.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/InventoryDisplay.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/InventoryMainPanel.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/InventoryTabContainer.gd" type="Script" id=4]
+[ext_resource path="res://Assets/UI/Themes/TabContainerTheme.tres" type="Theme" id=5]
+[ext_resource path="res://Scripts/OverallsPanel.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/ItemDescriptionPanel.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Items/pouch0.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/UI/ItemSelectionIndicator.tscn" type="PackedScene" id=9]
+[ext_resource path="res://FX/RichTextEffects/Nervous.gd" type="Script" id=10]
+[ext_resource path="res://FX/RichTextEffects/Number.gd" type="Script" id=11]
+[ext_resource path="res://FX/RichTextEffects/ColorMod.gd" type="Script" id=12]
+[ext_resource path="res://FX/RichTextEffects/Ghost.gd" type="Script" id=13]
+[ext_resource path="res://FX/RichTextEffects/Rain.gd" type="Script" id=14]
+[ext_resource path="res://FX/RichTextEffects/UwU.gd" type="Script" id=15]
+[ext_resource path="res://FX/RichTextEffects/Heart.gd" type="Script" id=16]
+[ext_resource path="res://FX/RichTextEffects/Jump.gd" type="Script" id=17]
+[ext_resource path="res://FX/RichTextEffects/Cuss.gd" type="Script" id=18]
+[ext_resource path="res://FX/RichTextEffects/L33T.gd" type="Script" id=19]
+[ext_resource path="res://FX/RichTextEffects/Woo.gd" type="Script" id=20]
+[ext_resource path="res://FX/RichTextEffects/Sparkle.gd" type="Script" id=21]
+
+[sub_resource type="RichTextEffect" id=1]
+script = ExtResource( 12 )
+
+[sub_resource type="RichTextEffect" id=2]
+script = ExtResource( 18 )
+
+[sub_resource type="RichTextEffect" id=3]
+script = ExtResource( 13 )
+
+[sub_resource type="RichTextEffect" id=4]
+script = ExtResource( 16 )
+
+[sub_resource type="RichTextEffect" id=5]
+script = ExtResource( 17 )
+
+[sub_resource type="RichTextEffect" id=6]
+script = ExtResource( 17 )
+
+[sub_resource type="RichTextEffect" id=7]
+script = ExtResource( 19 )
+
+[sub_resource type="RichTextEffect" id=8]
+script = ExtResource( 10 )
+
+[sub_resource type="RichTextEffect" id=9]
+script = ExtResource( 11 )
+
+[sub_resource type="RichTextEffect" id=10]
+script = ExtResource( 14 )
+
+[sub_resource type="RichTextEffect" id=11]
+script = ExtResource( 21 )
+
+[sub_resource type="RichTextEffect" id=12]
+script = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=13]
+script = ExtResource( 20 )
+
+[node name="InventoryMaster" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+script = ExtResource( 2 )
+
+[node name="BackgroundPanel" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabLabel" type="Label" parent="."]
+margin_left = 26.0
+margin_top = 4.0
+margin_right = 142.0
+margin_bottom = 13.0
+custom_colors/font_color_shadow = Color( 0.269531, 0.269531, 0.269531, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_fonts/font = ExtResource( 1 )
+text = "Item Tab"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabLabel2" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -103.0
+margin_top = 4.0
+margin_right = -5.0
+margin_bottom = 13.0
+custom_colors/font_color_shadow = Color( 0.269531, 0.269531, 0.269531, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_fonts/font = ExtResource( 1 )
+text = "Character's Inventory   "
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryTabContainer" type="TabContainer" parent="."]
+margin_left = 24.0
+margin_top = 15.0
+margin_right = 140.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 116, 106 )
+tab_align = 0
+drag_to_rearrange_enabled = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemDescriptionPanel" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -93.6465
+margin_top = -34.7071
+margin_right = 116.354
+margin_bottom = 1.29289
+rect_min_size = Vector2( 0, 36 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemDescriptionPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemIcon" type="TextureRect" parent="ItemDescriptionPanel/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_vertical = 2
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="TextureBackground" type="TextureRect" parent="ItemDescriptionPanel/HBoxContainer/ItemIcon"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 6
+
+[node name="ItemDescriptionLabel" type="RichTextLabel" parent="ItemDescriptionPanel/HBoxContainer"]
+margin_left = 30.0
+margin_top = 1.0
+margin_right = 210.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 0, 34 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "basic text description of an item. Lorem ipsum delor big butts dingle dongus winger wanger and also the shpingliest shpongles."
+text = "basic text description of an item. Lorem ipsum delor big butts dingle dongus winger wanger and also the shpingliest shpongles."
+scroll_active = false
+custom_effects = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]
+
+[node name="Tween" type="Tween" parent="ItemDescriptionPanel"]
+
+[node name="OverallsPanel" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -94.0
+margin_top = -57.0
+margin_right = -4.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 90, 96 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OverallsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -2.0
+margin_right = -4.0
+margin_bottom = 38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSelectionIndicator" parent="." instance=ExtResource( 9 )]
+position = Vector2( 30, 34 )
+
+[connection signal="tab_changed" from="InventoryTabContainer" to="." method="_on_InventoryTabContainer_tab_changed"]
+[connection signal="tab_changed" from="InventoryTabContainer" to="InventoryTabContainer" method="_on_self_tab_changed"]

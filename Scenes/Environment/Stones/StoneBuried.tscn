@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Environment/Stones/Boulder.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Environmental/Stones/stones_buried.png" type="Texture" id=2]
+[ext_resource path="res://Resources/ItemResources/MaterialItems/Stone.tres" type="Resource" id=3]
+
+[node name="StoneBuried" instance=ExtResource( 1 )]
+z_index = 0
+collision_layer = 512
+collision_mask = 2147484160
+held_resources = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ) ]
+pick_resistance_tier = 0
+pick_resistance = 3.0
+crackable = false
+
+[node name="Sprite" parent="." index="7"]
+position = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 1
+vframes = 2

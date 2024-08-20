@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/UI/HotBar/build_select_indicator.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/HotBar/build_select_indicator_bottom.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Bob"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TopLeftCorner/Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2, -2 ), Vector2( -1, -1 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TopRightCorner/Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 2, -2 ), Vector2( 1, -1 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BottomLeftCorner/Sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2, 2 ), Vector2( -1, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BottomRightCorner/Sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[node name="BuildIndicator" type="Control"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopLeftCorner" type="Control" parent="."]
+margin_left = -3.0
+margin_top = -3.0
+margin_right = 4.0
+margin_bottom = 4.0
+
+[node name="Sprite" type="Sprite" parent="TopLeftCorner"]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -2, -2 )
+
+[node name="TopRightCorner" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -4.0
+margin_top = -3.0
+margin_right = 3.0
+margin_bottom = 4.0
+
+[node name="Sprite" type="Sprite" parent="TopRightCorner"]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 2, -2 )
+flip_h = true
+
+[node name="BottomLeftCorner" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = 3.0
+
+[node name="Sprite" type="Sprite" parent="BottomLeftCorner"]
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -2, 2 )
+
+[node name="BottomRightCorner" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 3.0
+margin_bottom = 3.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="BottomRightCorner"]
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 2, 2 )
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Bob"
+anims/Bob = SubResource( 1 )

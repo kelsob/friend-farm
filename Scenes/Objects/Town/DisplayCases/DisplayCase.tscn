@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Structures/DisplayCases/display_case_small.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Structures/DisplayCases/display_case_small_dome.png" type="Texture" id=3]
+[ext_resource path="res://Resources/ItemResources/BuildableItems/DisplayCase1x1.tres" type="Resource" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="DisplayCase" instance=ExtResource( 2 )]
+movable = true
+build_item = ExtResource( 4 )
+
+[node name="CollisionShape2DObstruction" parent="." index="4"]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="7"]
+texture = ExtResource( 1 )
+offset = Vector2( -1, -6 )
+
+[node name="DomeSprite" type="Sprite" parent="Sprite" index="0"]
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -1, -11 )

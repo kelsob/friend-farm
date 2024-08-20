@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/QualityTierResources/QualityTier.gd" type="Script" id=1]
+[ext_resource path="res://Resources/QualityTierResources/4.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+tier = 3
+letter_tier = "B"
+name = "Better"
+quality_threshold = 3.5
+quality_threshold_to_next = 5.0
+value_modifier = 1.25
+RTEffect_open_primary = "[sparkle freq=1.15 c1=#a335ee c2=#ca8af6]"
+RTEffect_close_primary = "[/sparkle]"
+RTEffect_open_secondary = "[tornado radius=1 freq=4]"
+RTEffect_close_secondary = "[/tornado]"
+RTEffect_open_tertiary = ""
+RTEffect_close_tertiary = ""
+next_quality_tier = ExtResource( 2 )

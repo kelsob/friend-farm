@@ -1,0 +1,161 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Environmental/Plants/Flowers/buckwheat.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/FlowerObject.gd" type="Script" id=3]
+[ext_resource path="res://Shaders/DefaultColorShader.tres" type="Material" id=4]
+[ext_resource path="res://Scenes/Particles/WateredDripEffect.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 0.5, 0.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="Shader" id=10]
+code = "shader_type canvas_item;
+
+
+uniform vec4 original_0: hint_color;
+uniform vec4 original_1: hint_color;
+uniform vec4 original_2: hint_color;
+uniform vec4 original_3: hint_color;
+uniform vec4 original_4: hint_color;
+uniform vec4 original_5: hint_color;
+uniform vec4 replace_0: hint_color;
+uniform vec4 replace_1: hint_color;
+uniform vec4 replace_2: hint_color;
+uniform vec4 replace_3: hint_color;
+uniform vec4 replace_4: hint_color;
+uniform vec4 replace_5: hint_color;
+
+const float precision = 0.001;
+
+
+vec4 swap_color(vec4 color){
+	vec4 original_colors[6] = vec4[6] (original_0, original_1, original_2, original_3, original_4, original_5);
+	vec4 replace_colors[6] = vec4[6] (replace_0, replace_1, replace_2, replace_3, replace_4, replace_5);
+	for (int i = 0; i < 6; i ++) {
+		if (distance(color, original_colors[i]) <= precision){
+			return replace_colors[i];
+		}
+	}
+	return color;
+}
+
+
+void fragment() {
+	COLOR = swap_color(texture(TEXTURE, UV));
+}"
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 10 )
+shader_param/original_0 = Color( 0.09, 0.09, 0.09, 1 )
+shader_param/original_1 = Color( 0.192157, 0.192157, 0.192157, 1 )
+shader_param/original_2 = Color( 0.356863, 0.356863, 0.356863, 1 )
+shader_param/original_3 = Color( 0.45098, 0.45098, 0.45098, 1 )
+shader_param/original_4 = Color( 0.52549, 0.52549, 0.52549, 1 )
+shader_param/original_5 = Color( 0.686275, 0.686275, 0.686275, 1 )
+shader_param/replace_0 = Color( 0, 0.0431373, 0.188235, 1 )
+shader_param/replace_1 = Color( 0, 0.0784314, 0.380392, 1 )
+shader_param/replace_2 = Color( 0.0745098, 0.223529, 0.635294, 1 )
+shader_param/replace_3 = Color( 0.156863, 0.309804, 0.741176, 1 )
+shader_param/replace_4 = Color( 0.235294, 0.388235, 0.811765, 1 )
+shader_param/replace_5 = Color( 0.407843, 0.466701, 0.960784, 1 )
+
+[node name="FlowerObject" instance=ExtResource( 2 )]
+material = ExtResource( 4 )
+collision_layer = 656
+collision_mask = 2147484304
+script = ExtResource( 3 )
+obstructing = false
+
+[node name="CollisionShape2D" parent="Area2DInteractable" index="0"]
+visible = false
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[node name="Area2DPlayer" parent="." index="3"]
+position = Vector2( 0, 2 )
+
+[node name="Area2DPlant" type="Area2D" parent="." index="4"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DPlant" index="0"]
+visible = false
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="Area2DShade" type="Area2D" parent="." index="5"]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DShade" index="0"]
+visible = false
+position = Vector2( 8, 8 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2DObstruction" parent="." index="6"]
+position = Vector2( 8, 8 )
+shape = SubResource( 4 )
+
+[node name="WateredEffect" parent="." index="9" instance=ExtResource( 5 )]
+position = Vector2( 9, 6 )
+randomness = 1.0
+
+[node name="RayCast2DSpread" type="RayCast2D" parent="." index="10"]
+visible = false
+position = Vector2( 8, 8 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 2147499934
+collide_with_areas = true
+
+[node name="RayCast2DBreed" type="RayCast2D" parent="." index="11"]
+visible = false
+position = Vector2( 8, 8 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 128
+collide_with_areas = true
+
+[node name="HueShiftButton" type="Button" parent="." index="12"]
+margin_right = 16.0
+margin_bottom = 16.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" parent="." index="13"]
+material = SubResource( 11 )
+texture = ExtResource( 1 )
+offset = Vector2( -2, -16 )
+hframes = 6
+frame = 5
+
+[connection signal="body_entered" from="Area2DPlayer" to="." method="_on_Area2DPlayer_body_entered"]
+[connection signal="body_exited" from="Area2DPlayer" to="." method="_on_Area2DPlayer_body_exited"]
+[connection signal="pressed" from="HueShiftButton" to="." method="_on_Button_pressed"]

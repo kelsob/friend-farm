@@ -1,0 +1,3 @@
+extends NPC_Behaviour
+
+class_name FreeRoamBehaviour

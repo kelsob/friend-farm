@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ItemScripts/FertilizerItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/pouch0.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Germinator Fertilizer"
+description = "Makes plants quite fertile, in a different way. Makes plants produce more seeds."
+sellable = true
+energy_cost = 1
+pal_value_base = 0
+pal_value_actual = 0
+texture = ExtResource( 2 )
+unique = false
+quality = 0.0
+stackable = true
+max_stack_size = 25
+current_stack_size = 1
+single_use = true
+hotbar_assignable = true
+capacitied_item = false
+player_encountered = false
+item_type = 0
+affected_stat = 4
+color_modulate = Color( 0.796078, 0.521569, 0, 1 )
+stat_change = 0.5
+uses = 3
+object_path = "res://Scenes/Environment/Miscellaneous/FertilizerObject.tscn"
+player_use_animation = "Kneel"
+player_use_animation_miss = "Kneel"

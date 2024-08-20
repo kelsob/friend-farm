@@ -1,0 +1,552 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Keyboard.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/LetterButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/CharacterDisplay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/DialogBoxFont-8pt.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/UI/MenuArrow.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/KeyboardMenuButton.gd" type="Script" id=6]
+[ext_resource path="res://Assets/UI/KeyboardPanel2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Player/farmer-OW-master-0.png" type="Texture" id=8]
+[ext_resource path="res://Assets/UI/KeyboardPanel1.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "IDLE"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.2 ), Color( 1, 1, 1, 0.4 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0.4 ), Color( 1, 1, 1, 0.2 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Keyboard" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -66.0
+margin_right = 100.0
+margin_bottom = 32.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextDisplay" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -60.0
+margin_right = 60.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="TextDisplay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterDisplayContainer" type="HBoxContainer" parent="TextDisplay"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -5.0
+margin_right = -12.0
+margin_bottom = 11.0
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterDisplay" parent="TextDisplay/CharacterDisplayContainer" instance=ExtResource( 3 )]
+
+[node name="CharacterDisplay2" parent="TextDisplay/CharacterDisplayContainer" instance=ExtResource( 3 )]
+margin_left = 10.0
+margin_right = 18.0
+
+[node name="CharacterDisplay3" parent="TextDisplay/CharacterDisplayContainer" instance=ExtResource( 3 )]
+margin_left = 20.0
+margin_right = 28.0
+
+[node name="CharacterDisplay4" parent="TextDisplay/CharacterDisplayContainer" instance=ExtResource( 3 )]
+margin_left = 30.0
+margin_right = 38.0
+
+[node name="CharacterDisplay5" parent="TextDisplay/CharacterDisplayContainer" instance=ExtResource( 3 )]
+margin_left = 40.0
+margin_right = 48.0
+
+[node name="CharacterDisplay6" parent="TextDisplay/CharacterDisplayContainer" instance=ExtResource( 3 )]
+margin_left = 50.0
+margin_right = 58.0
+
+[node name="CharacterDisplay7" parent="TextDisplay/CharacterDisplayContainer" instance=ExtResource( 3 )]
+margin_left = 60.0
+margin_right = 68.0
+
+[node name="CharacterDisplay8" parent="TextDisplay/CharacterDisplayContainer" instance=ExtResource( 3 )]
+margin_left = 70.0
+margin_right = 78.0
+
+[node name="CharacterSprite" type="Sprite" parent="TextDisplay"]
+position = Vector2( 8, 0 )
+texture = ExtResource( 8 )
+centered = false
+offset = Vector2( 0, -2 )
+vframes = 4
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextDisplay/CharacterSprite"]
+autoplay = "IDLE"
+anims/IDLE = SubResource( 1 )
+
+[node name="Keyboard" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -62.0
+margin_right = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Keyboard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Keyboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -77.0
+margin_top = -26.0
+margin_right = 77.0
+margin_bottom = 26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="Keyboard/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 52.0
+size_flags_vertical = 0
+columns = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LetterButtonA" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_right = 10.0
+margin_bottom = 10.0
+
+[node name="LetterButtonB" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 14.0
+margin_right = 24.0
+margin_bottom = 10.0
+character = "b"
+
+[node name="LetterButtonC" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 28.0
+margin_right = 38.0
+margin_bottom = 10.0
+character = "c"
+
+[node name="LetterButtonD" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 42.0
+margin_right = 52.0
+margin_bottom = 10.0
+character = "d"
+
+[node name="LetterButtonE" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 56.0
+margin_right = 66.0
+margin_bottom = 10.0
+character = "e"
+
+[node name="LetterButtonF" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 70.0
+margin_right = 80.0
+margin_bottom = 10.0
+character = "f"
+
+[node name="LetterButtonG" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 84.0
+margin_right = 94.0
+margin_bottom = 10.0
+character = "g"
+
+[node name="LetterButtonH" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 98.0
+margin_right = 108.0
+margin_bottom = 10.0
+character = "h"
+
+[node name="LetterButtonI" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 14.0
+margin_right = 10.0
+margin_bottom = 24.0
+character = "i"
+
+[node name="LetterButtonJ" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 24.0
+character = "j"
+
+[node name="LetterButtonK" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 28.0
+margin_top = 14.0
+margin_right = 38.0
+margin_bottom = 24.0
+character = "k"
+
+[node name="LetterButtonL" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 42.0
+margin_top = 14.0
+margin_right = 52.0
+margin_bottom = 24.0
+character = "l"
+
+[node name="LetterButtonM" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 56.0
+margin_top = 14.0
+margin_right = 66.0
+margin_bottom = 24.0
+character = "m"
+
+[node name="LetterButtonN" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 70.0
+margin_top = 14.0
+margin_right = 80.0
+margin_bottom = 24.0
+character = "n"
+
+[node name="LetterButtonO" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 84.0
+margin_top = 14.0
+margin_right = 94.0
+margin_bottom = 24.0
+character = "o"
+
+[node name="LetterButtonP" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 98.0
+margin_top = 14.0
+margin_right = 108.0
+margin_bottom = 24.0
+character = "p"
+
+[node name="LetterButtonQ" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 28.0
+margin_right = 10.0
+margin_bottom = 38.0
+character = "q"
+
+[node name="LetterButtonR" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 14.0
+margin_top = 28.0
+margin_right = 24.0
+margin_bottom = 38.0
+character = "r"
+
+[node name="LetterButtonS" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 28.0
+margin_top = 28.0
+margin_right = 38.0
+margin_bottom = 38.0
+character = "s"
+
+[node name="LetterButtonT" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 42.0
+margin_top = 28.0
+margin_right = 52.0
+margin_bottom = 38.0
+character = "t"
+
+[node name="LetterButtonU" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 56.0
+margin_top = 28.0
+margin_right = 66.0
+margin_bottom = 38.0
+character = "u"
+
+[node name="LetterButtonV" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 70.0
+margin_top = 28.0
+margin_right = 80.0
+margin_bottom = 38.0
+character = "v"
+
+[node name="LetterButtonW" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 84.0
+margin_top = 28.0
+margin_right = 94.0
+margin_bottom = 38.0
+character = "w"
+
+[node name="LetterButtonX" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 98.0
+margin_top = 28.0
+margin_right = 108.0
+margin_bottom = 38.0
+character = "x"
+
+[node name="LetterButtonY" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 42.0
+margin_right = 10.0
+margin_bottom = 52.0
+character = "y"
+
+[node name="LetterButtonZ" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 14.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 52.0
+character = "z"
+
+[node name="LetterButtonSPACE" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 28.0
+margin_top = 42.0
+margin_right = 38.0
+margin_bottom = 52.0
+character = " "
+
+[node name="LetterButtonPERIOD" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 42.0
+margin_top = 42.0
+margin_right = 52.0
+margin_bottom = 52.0
+character = "."
+
+[node name="LetterButtonCOMMA" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 56.0
+margin_top = 42.0
+margin_right = 66.0
+margin_bottom = 52.0
+character = ","
+
+[node name="LetterButtonAPOSTROPHE" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 70.0
+margin_top = 42.0
+margin_right = 80.0
+margin_bottom = 52.0
+character = "'"
+
+[node name="LetterButtonEXCLAMATION" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 84.0
+margin_top = 42.0
+margin_right = 94.0
+margin_bottom = 52.0
+character = "!"
+
+[node name="LetterButtonQUESTION" parent="Keyboard/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 98.0
+margin_top = 42.0
+margin_right = 108.0
+margin_bottom = 52.0
+character = "?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Keyboard/HBoxContainer"]
+margin_left = 112.0
+margin_top = 14.0
+margin_right = 154.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 42, 38 )
+size_flags_vertical = 10
+custom_constants/separation = 5
+
+[node name="CaseButton" type="TextureButton" parent="Keyboard/HBoxContainer/VBoxContainer"]
+margin_right = 42.0
+margin_bottom = 9.0
+rect_min_size = Vector2( 42, 9 )
+size_flags_horizontal = 0
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Keyboard/HBoxContainer/VBoxContainer/CaseButton"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -4.5
+margin_bottom = 4.5
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.32549, 0.32549, 0.317647, 1 )
+text = "UPPER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Keyboard/HBoxContainer/VBoxContainer/CaseButton"]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -4.5
+margin_right = 6.0
+margin_bottom = 4.5
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="Keyboard/HBoxContainer/VBoxContainer"]
+margin_top = 14.0
+margin_right = 42.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 42, 9 )
+size_flags_horizontal = 0
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Keyboard/HBoxContainer/VBoxContainer/BackButton"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -4.5
+margin_bottom = 4.5
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.32549, 0.32549, 0.317647, 1 )
+text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Keyboard/HBoxContainer/VBoxContainer/BackButton"]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -4.5
+margin_right = 6.0
+margin_bottom = 4.5
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OKButton" type="TextureButton" parent="Keyboard/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 42.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 42, 9 )
+size_flags_horizontal = 0
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Keyboard/HBoxContainer/VBoxContainer/OKButton"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -4.5
+margin_bottom = 4.5
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.32549, 0.32549, 0.317647, 1 )
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Keyboard/HBoxContainer/VBoxContainer/OKButton"]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -4.5
+margin_right = 6.0
+margin_bottom = 4.5
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Appear = SubResource( 2 )
+anims/Disappear = SubResource( 3 )
+[connection signal="focus_entered" from="Keyboard/HBoxContainer/VBoxContainer/CaseButton" to="Keyboard/HBoxContainer/VBoxContainer/CaseButton" method="show_icon"]
+[connection signal="focus_exited" from="Keyboard/HBoxContainer/VBoxContainer/CaseButton" to="Keyboard/HBoxContainer/VBoxContainer/CaseButton" method="hide_icon"]
+[connection signal="pressed" from="Keyboard/HBoxContainer/VBoxContainer/CaseButton" to="." method="_on_CaseButton_pressed"]
+[connection signal="focus_entered" from="Keyboard/HBoxContainer/VBoxContainer/BackButton" to="Keyboard/HBoxContainer/VBoxContainer/BackButton" method="show_icon"]
+[connection signal="focus_exited" from="Keyboard/HBoxContainer/VBoxContainer/BackButton" to="Keyboard/HBoxContainer/VBoxContainer/BackButton" method="hide_icon"]
+[connection signal="pressed" from="Keyboard/HBoxContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="focus_entered" from="Keyboard/HBoxContainer/VBoxContainer/OKButton" to="Keyboard/HBoxContainer/VBoxContainer/OKButton" method="show_icon"]
+[connection signal="focus_exited" from="Keyboard/HBoxContainer/VBoxContainer/OKButton" to="Keyboard/HBoxContainer/VBoxContainer/OKButton" method="hide_icon"]
+[connection signal="pressed" from="Keyboard/HBoxContainer/VBoxContainer/OKButton" to="." method="_on_OKButton_pressed"]

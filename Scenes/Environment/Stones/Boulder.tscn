@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Environmental/Stones/boulders.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Boulder.gd" type="Script" id=3]
+[ext_resource path="res://Resources/ItemResources/MaterialItems/Stone.tres" type="Resource" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[node name="Boulder" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+obstructing = false
+held_resources = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ]
+pick_resistance_tier = 1
+
+[node name="CollisionShape2D" parent="Area2DInteractable" index="0"]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2DObstruction" parent="." index="4"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="." index="7"]
+texture = ExtResource( 1 )
+offset = Vector2( -2, -2 )
+vframes = 5
+hframes = 3

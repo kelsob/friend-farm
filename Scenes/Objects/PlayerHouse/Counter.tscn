@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/SetDec/Counter.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/InteractableObject.tscn" type="PackedScene" id=2]
+
+[node name="Counter" instance=ExtResource( 2 )]
+obstructing = false
+
+[node name="CollisionShape2DObstruction" parent="." index="4"]
+position = Vector2( 8, 8 )
+
+[node name="Sprite" parent="." index="7"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -1 )
